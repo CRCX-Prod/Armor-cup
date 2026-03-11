@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armor Cup 2026 - Formation Équipage</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+    :root {
+        --bg: #ffffff;
+        --bg2: #f5f5f0;
+        --bg3: #eaeae0;
+        --text: #1a1a1a;
+        --text-muted: #666655;
+        --accent: #f5c518;
+        --accent2: #d4a800;
+        --orange: #ff9f1c;
+        --green: #22c55e;
+        --red: #ef4444;
+        --gradient: linear-gradient(135deg, #f5c518, #d4a800);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+    }
+
+    /* ---- NAV LATERALE ---- */
+    .sidenav {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 260px;
+        height: 100vh;
+        background: var(--bg2);
+        border-right: 2px solid var(--accent);
+        padding: 24px 0;
+        overflow-y: auto;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+    }
+    .sidenav-title {
+        font-size: 1.1em;
+        font-weight: 900;
+        padding: 0 20px 20px;
+        color: var(--accent2);
+        border-bottom: 1px solid var(--bg3);
+        margin-bottom: 8px;
+    }
+    .sidenav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 0.9em;
+        font-weight: 500;
+        border-left: 3px solid transparent;
+        transition: all 0.2s;
+    }
+    .sidenav a:hover {
+        background: var(--bg3);
+        color: var(--text);
+    }
+    .sidenav a.active {
+        border-left-color: var(--accent);
+        background: var(--bg);
+        color: var(--text);
+        font-weight: 700;
+    }
+    .sidenav .nav-icon {
+        font-size: 1.2em;
+        width: 24px;
+        text-align: center;
+    }
+    .sidenav .progress-fill {
+        margin-top: auto;
+        padding: 16px 20px;
+        border-top: 1px solid var(--bg3);
+    }
+    .progress-bar-bg {
+        height: 6px;
+        background: var(--bg3);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    .progress-bar-fill {
+        height: 100%;
+        background: var(--gradient);
+        border-radius: 3px;
+        width: 0%;
+        transition: width 0.3s;
+    }
+    .progress-label {
+        font-size: 0.8em;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+    }
+
+    /* ---- CONTENU PRINCIPAL ---- */
+    .main {
+        margin-left: 260px;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 60px 40px;
+        background: linear-gradient(180deg, #fff9e6 0%, #ffffff 100%);
+    }
+    .hero h1 {
+        font-size: 3.5em;
+        font-weight: 900;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.1;
+    }
+    .hero .subtitle {
+        font-size: 1.4em;
+        color: var(--text-muted);
+        margin-top: 12px;
+        font-weight: 300;
+    }
+    .hero .hero-intro {
+        max-width: 600px;
+        margin-top: 32px;
+        font-size: 1.15em;
+        color: var(--text-muted);
+        line-height: 1.7;
+    }
+    .hero .scroll-hint {
+        margin-top: 48px;
+        color: var(--accent2);
+        font-size: 0.9em;
+        animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(8px); }
+    }
+
+    /* ---- SECTIONS ---- */
+    section {
+        padding: 80px 60px;
+        max-width: 960px;
+        margin: 0 auto;
+        border-bottom: 1px solid var(--bg3);
+    }
+    section:last-of-type {
+        border-bottom: none;
+    }
+
+    section h2 {
+        font-size: 2em;
+        font-weight: 800;
+        color: var(--accent2);
+        margin-bottom: 8px;
+    }
+    section .section-subtitle {
+        font-size: 1em;
+        color: var(--text-muted);
+        margin-bottom: 32px;
+    }
+    section h3 {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: var(--orange);
+        margin: 24px 0 10px;
+    }
+
+    /* ---- CARDS ---- */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+    }
+    .card {
+        background: var(--bg2);
+        border: 1px solid rgba(245,197,24,0.3);
+        border-radius: 14px;
+        padding: 22px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+    .card-icon { font-size: 2em; margin-bottom: 8px; }
+    .card-title { font-size: 1.1em; font-weight: 700; color: var(--accent2); margin-bottom: 6px; }
+    .card-desc { font-size: 0.92em; color: var(--text-muted); line-height: 1.5; }
+    .card-profile { font-size: 0.82em; color: var(--orange); margin-top: 8px; font-style: italic; }
+
+    /* ---- SCHEMA BATEAU ---- */
+    .boat-schema {
+        margin-top: 32px;
+    }
+
+    /* ---- STEPS ---- */
+    .steps-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .step {
+        background: var(--bg2);
+        border-radius: 14px;
+        padding: 18px;
+        flex: 1;
+        min-width: 180px;
+        max-width: 220px;
+        text-align: center;
+        border-top: 3px solid var(--accent);
+    }
+    .step-num { font-size: 1.6em; font-weight: 900; color: var(--accent); margin-bottom: 6px; }
+    .step-text { font-size: 0.9em; color: var(--text-muted); line-height: 1.5; }
+    .step-role { font-size: 0.78em; color: var(--orange); margin-top: 6px; font-weight: 600; }
+
+    /* ---- REGLES ---- */
+    .rules { display: flex; flex-direction: column; gap: 16px; }
+    .rule {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        background: var(--bg2);
+        border-radius: 14px;
+        padding: 20px;
+        border-left: 4px solid var(--accent);
+    }
+    .rule-number { font-size: 2.2em; font-weight: 900; color: var(--accent); min-width: 50px; text-align: center; }
+    .rule-text { font-size: 1.05em; line-height: 1.5; }
+
+    /* ---- VOCABULAIRE ---- */
+    .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .vocab-item {
+        background: var(--bg2);
+        border-radius: 10px;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .vocab-cmd { font-weight: 700; color: var(--accent2); min-width: 130px; font-size: 1em; }
+    .vocab-meaning { color: var(--text-muted); font-size: 0.9em; }
+
+    /* ---- DEUX COLONNES ---- */
+    .two-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+    .col {
+        background: var(--bg2);
+        border-radius: 14px;
+        padding: 24px;
+    }
+    .col h3 { margin-top: 0; }
+    .col ul { list-style: none; padding: 0; }
+    .col ul li {
+        padding: 6px 0 6px 24px;
+        position: relative;
+        font-size: 0.95em;
+        color: var(--text);
+    }
+    .col ul li::before {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 14px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+    }
+
+    /* ---- NOEUDS ---- */
+    .knots-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+    .knot-card {
+        background: var(--bg2);
+        border-radius: 14px;
+        padding: 20px;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: all 0.2s;
+    }
+    .knot-card:hover { border-color: var(--accent2); }
+    .knot-icon { font-size: 2.5em; margin-bottom: 10px; }
+    .knot-name { font-size: 1em; font-weight: 700; color: var(--accent2); }
+    .knot-usage { font-size: 0.82em; color: var(--text-muted); margin-top: 4px; }
+
+    /* ---- CHECKLIST ---- */
+    .checklist {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .check-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        background: var(--bg2);
+        border-radius: 10px;
+        font-size: 0.95em;
+    }
+    .check-icon { font-size: 1.2em; }
+
+    /* ---- QUIZ ---- */
+    .quiz-block {
+        background: var(--bg2);
+        border-radius: 14px;
+        padding: 28px;
+        margin-bottom: 20px;
+    }
+    .quiz-question {
+        font-size: 1.15em;
+        margin-bottom: 16px;
+        font-weight: 600;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 8px; }
+    .quiz-btn {
+        background: var(--bg);
+        border: 2px solid var(--bg3);
+        border-radius: 10px;
+        padding: 12px 18px;
+        color: var(--text);
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: left;
+        font-family: 'Inter', sans-serif;
+    }
+    .quiz-btn:hover { border-color: var(--accent); background: #fff9e6; }
+    .quiz-btn.correct { border-color: var(--green); background: rgba(34,197,94,0.1); }
+    .quiz-btn.wrong { border-color: var(--red); background: rgba(239,68,68,0.06); }
+    .quiz-feedback {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 0.95em;
+        display: none;
+        text-align: center;
+    }
+
+    /* ---- QUOTE ---- */
+    .quote {
+        font-size: 1.3em;
+        font-style: italic;
+        color: var(--text-muted);
+        border-left: 4px solid var(--accent);
+        padding-left: 20px;
+        margin: 16px 0 24px;
+        line-height: 1.6;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+        text-align: center;
+        padding: 60px 40px;
+        background: var(--bg2);
+        color: var(--text-muted);
+        font-size: 0.9em;
+    }
+    .footer h2 {
+        font-size: 2.2em;
+        font-weight: 900;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 12px;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+        .sidenav { display: none; }
+        .main { margin-left: 0; }
+        .mobile-nav {
+            display: flex !important;
+        }
+        section { padding: 48px 24px; }
+        .hero { padding: 48px 24px; }
+        .hero h1 { font-size: 2.2em; }
+        .two-cols, .vocab-grid, .checklist { grid-template-columns: 1fr; }
+        .knots-grid { grid-template-columns: repeat(2, 1fr); }
+        .steps-row { flex-direction: column; align-items: center; }
+    }
+
+    /* ---- NAV MOBILE ---- */
+    .mobile-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--bg2);
+        border-top: 2px solid var(--accent);
+        z-index: 100;
+        overflow-x: auto;
+        padding: 8px 12px;
+        gap: 4px;
+    }
+    .mobile-nav a {
+        flex-shrink: 0;
+        padding: 8px 14px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 0.78em;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: var(--bg);
+        white-space: nowrap;
+        transition: all 0.2s;
+    }
+    .mobile-nav a.active {
+        background: var(--accent);
+        color: var(--bg);
+    }
+
+    /* ---- POPUP MODAL ---- */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 500;
+        justify-content: center;
+        align-items: center;
+        padding: 24px;
+        animation: fadeOverlay 0.2s ease;
+    }
+    .modal-overlay.open { display: flex; }
+    @keyframes fadeOverlay {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .modal {
+        background: var(--bg);
+        border-radius: 16px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 32px;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        position: relative;
+        animation: slideUp 0.25s ease;
+    }
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: var(--text-muted);
+        transition: color 0.2s;
+        line-height: 1;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-icon { font-size: 2.5em; margin-bottom: 12px; }
+    .modal h3 {
+        font-size: 1.4em;
+        font-weight: 800;
+        color: var(--accent2);
+        margin-bottom: 16px;
+    }
+    .modal p {
+        font-size: 0.95em;
+        color: var(--text);
+        line-height: 1.7;
+        margin-bottom: 12px;
+    }
+    .modal ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 12px;
+    }
+    .modal ul li {
+        padding: 5px 0 5px 20px;
+        position: relative;
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+    .modal ul li::before {
+        content: '';
+        position: absolute;
+        left: 4px;
+        top: 13px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+    }
+    .modal .tip {
+        background: #fff9e6;
+        border-left: 3px solid var(--accent);
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 0.9em;
+        color: var(--text-muted);
+        margin-top: 8px;
+    }
+
+    /* Curseur cliquable sur les éléments avec popup */
+    [data-popup] { cursor: pointer; }
+    [data-popup]::after {
+        content: ' +';
+        font-size: 0.7em;
+        color: var(--accent2);
+        font-weight: 700;
+        opacity: 0.6;
+    }
+</style>
+</head>
+<body>
+
+<!-- NAV LATERALE -->
+<nav class="sidenav" id="sidenav">
+    <div class="sidenav-title">Armor Cup 2026</div>
+    <a href="#accueil"><span class="nav-icon">&#9973;</span> Accueil</a>
+    <a href="#bateau"><span class="nav-icon">&#128207;</span> Le bateau</a>
+    <a href="#zones"><span class="nav-icon">&#128736;</span> Zones du bateau</a>
+    <a href="#allures"><span class="nav-icon">&#127788;</span> Amures et allures</a>
+    <a href="#postes"><span class="nav-icon">&#127919;</span> Les postes</a>
+    <a href="#regles"><span class="nav-icon">&#9888;</span> Règles d'or</a>
+    <a href="#vocabulaire"><span class="nav-icon">&#128172;</span> Vocabulaire</a>
+    <a href="#virement"><span class="nav-icon">&#128260;</span> Virement de bord</a>
+    <a href="#depart"><span class="nav-icon">&#127937;</span> Le départ</a>
+    <a href="#noeuds"><span class="nav-icon">&#10060;</span> Les nœuds</a>
+    <a href="#quiz"><span class="nav-icon">&#10067;</span> Quiz</a>
+    <a href="#securite"><span class="nav-icon">&#129509;</span> Sécurité</a>
+    <a href="#checklist"><span class="nav-icon">&#9989;</span> Jour J</a>
+    <a href="#esprit"><span class="nav-icon">&#128170;</span> État d'esprit</a>
+    <div class="progress-fill">
+        <div class="progress-label">Progression</div>
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+    </div>
+</nav>
+
+<!-- NAV MOBILE -->
+<div class="mobile-nav" id="mobileNav">
+    <a href="#bateau">Bateau</a>
+    <a href="#allures">Allures</a>
+    <a href="#postes">Postes</a>
+    <a href="#regles">Règles</a>
+    <a href="#vocabulaire">Vocab</a>
+    <a href="#virement">Manœuvre</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#securite">Sécurité</a>
+    <a href="#checklist">Jour J</a>
+</div>
+
+<!-- MODAL POPUP -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalContent">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<div class="main">
+
+    <!-- ACCUEIL -->
+    <div class="hero" id="accueil">
+        <h1>Armor Cup 2026</h1>
+        <div class="subtitle">Formation Équipage - Grand Surprise</div>
+        <div class="hero-intro">
+            Personne n'attend de vous d'être des pros. On apprend ensemble, on navigue ensemble.<br>
+            Parcourez les sections à votre rythme pour tout savoir avant le jour J.
+        </div>
+        <div class="scroll-hint">&#9660; Scrollez pour commencer</div>
+    </div>
+
+    <!-- LE BATEAU -->
+    <section id="bateau">
+        <h2>Le Grand Surprise</h2>
+        <p class="section-subtitle">Notre monture pour la régate</p>
+        <div class="cards">
+            <div class="card" data-popup="fiche-technique">
+                <div class="card-icon">&#128207;</div>
+                <div class="card-title">Fiche technique</div>
+                <div class="card-desc">
+                    Monotype Archambault<br>
+                    9,5 m de long<br>
+                    Tirant d'eau ~2 m<br>
+                    Léger et réactif
+                </div>
+            </div>
+            <div class="card" data-popup="voilure">
+                <div class="card-icon">&#9881;</div>
+                <div class="card-title">Voilure</div>
+                <div class="card-desc">
+                    Grand-voile<br>
+                    Foc (voile avant)<br>
+                    Spinnaker symétrique (tangon)<br>
+                    Idéal pour débuter
+                </div>
+            </div>
+            <div class="card" data-popup="forces">
+                <div class="card-icon">&#128170;</div>
+                <div class="card-title">Ses forces</div>
+                <div class="card-desc">
+                    Simple à manœuvrer<br>
+                    Sensible aux réglages<br>
+                    Excellente école<br>
+                    Équipage 5-7 pers.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZONES DU BATEAU -->
+    <section id="zones">
+        <h2>Les zones du bateau</h2>
+        <p class="section-subtitle">Chaque zone a son rôle</p>
+        <div class="steps-row">
+            <div class="step" data-popup="zone-avant">
+                <div class="step-num">Avant</div>
+                <div class="step-text">Balcon, étai, tangon. Zone de l'homme de pont.</div>
+                <div class="step-role">Attention : zone exposée</div>
+            </div>
+            <div class="step" data-popup="zone-mat">
+                <div class="step-num">Mât</div>
+                <div class="step-text">Drisses GV/foc/spi, hale-bas, cunningham.</div>
+                <div class="step-role">Zone du pianiste</div>
+            </div>
+            <div class="step" data-popup="zone-cockpit">
+                <div class="step-num">Cockpit</div>
+                <div class="step-text">Winchs, écoutes, chariot GV, compas.</div>
+                <div class="step-role">Zone des régleurs + barreur</div>
+            </div>
+            <div class="step" data-popup="zone-arriere">
+                <div class="step-num">Arrière</div>
+                <div class="step-text">Barre, safran. Poste du skipper.</div>
+                <div class="step-role">Commandement</div>
+            </div>
+        </div>
+        <div class="boat-schema">
+            <svg viewBox="0 0 900 200" style="width:100%;max-width:900px;margin-top:24px;" xmlns="http://www.w3.org/2000/svg">
+              <path d="M30 100 C50 80 100 50 180 38 Q250 30 350 30 L780 55 Q820 60 830 70 L830 130 Q820 140 780 145 L350 170 Q250 170 180 162 C100 150 50 120 30 100Z" fill="var(--bg2)" stroke="var(--accent)" stroke-width="2.5"/>
+              <line x1="830" y1="70" x2="830" y2="130" stroke="var(--accent)" stroke-width="2.5"/>
+              <line x1="250" y1="32" x2="250" y2="168" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6,4"/>
+              <line x1="450" y1="42" x2="450" y2="158" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6,4"/>
+              <line x1="650" y1="50" x2="650" y2="150" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6,4"/>
+              <rect x="300" y="60" width="6" height="80" rx="3" fill="var(--accent2)" opacity="0.8"/>
+              <line x1="30" y1="100" x2="300" y2="100" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4,3"/>
+              <circle cx="530" cy="65" r="5" fill="none" stroke="var(--accent2)" stroke-width="2"/>
+              <circle cx="530" cy="135" r="5" fill="none" stroke="var(--accent2)" stroke-width="2"/>
+              <line x1="720" y1="80" x2="720" y2="120" stroke="var(--accent2)" stroke-width="3" stroke-linecap="round"/>
+              <rect x="835" y="88" width="20" height="24" rx="4" fill="none" stroke="var(--accent2)" stroke-width="2"/>
+              <text x="140" y="96" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700" font-family="Inter,sans-serif">AVANT</text>
+              <text x="140" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="Inter,sans-serif">étai - balcon - tangon</text>
+              <text x="350" y="96" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700" font-family="Inter,sans-serif">MÂT</text>
+              <text x="350" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="Inter,sans-serif">drisses - hale-bas</text>
+              <text x="550" y="96" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700" font-family="Inter,sans-serif">COCKPIT</text>
+              <text x="550" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="Inter,sans-serif">winchs - écoutes</text>
+              <text x="740" y="96" text-anchor="middle" fill="var(--accent)" font-size="16" font-weight="700" font-family="Inter,sans-serif">ARRIÈRE</text>
+              <text x="740" y="114" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="Inter,sans-serif">barre - safran</text>
+              <text x="50" y="25" fill="var(--text-muted)" font-size="12" font-family="Inter,sans-serif">&#9664; proue</text>
+              <text x="780" y="25" fill="var(--text-muted)" font-size="12" font-family="Inter,sans-serif">poupe &#9654;</text>
+            </svg>
+        </div>
+    </section>
+
+    <!-- AMURES ET ALLURES -->
+    <section id="allures">
+        <h2>Amures et allures</h2>
+        <p class="section-subtitle">Comprendre la direction du vent par rapport au bateau</p>
+
+        <h3>Les amures : de quel côté vient le vent ?</h3>
+        <div class="two-cols" style="margin-bottom:32px;">
+            <div class="card" data-popup="amure-tribord" style="text-align:center;">
+                <div class="card-icon">&#9654;</div>
+                <div class="card-title">Tribord amure</div>
+                <div class="card-desc">Le vent vient de <strong>droite</strong> (tribord).<br>Le bateau est <strong>prioritaire</strong>.</div>
+            </div>
+            <div class="card" data-popup="amure-babord" style="text-align:center;">
+                <div class="card-icon">&#9664;</div>
+                <div class="card-title">Bâbord amure</div>
+                <div class="card-desc">Le vent vient de <strong>gauche</strong> (bâbord).<br>Le bateau doit <strong>s'écarter</strong>.</div>
+            </div>
+        </div>
+
+        <h3>Les allures : l'angle par rapport au vent</h3>
+        <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.95em;">Cliquez sur chaque allure pour en savoir plus.</p>
+
+        <!-- Schéma rose des allures -->
+        <div style="display:flex;gap:32px;align-items:center;flex-wrap:wrap;justify-content:center;">
+            <svg viewBox="0 0 400 420" style="width:360px;flex-shrink:0;" xmlns="http://www.w3.org/2000/svg">
+                <!-- Fond -->
+                <circle cx="200" cy="230" r="170" fill="none" stroke="var(--bg3)" stroke-width="1"/>
+                <!-- Flèche vent -->
+                <line x1="200" y1="10" x2="200" y2="70" stroke="var(--accent)" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="var(--accent)"/></marker></defs>
+                <text x="200" y="25" text-anchor="middle" fill="var(--accent)" font-size="14" font-weight="700" font-family="Inter,sans-serif">VENT</text>
+
+                <!-- Bateau au centre -->
+                <ellipse cx="200" cy="230" rx="12" ry="22" fill="var(--bg2)" stroke="var(--accent2)" stroke-width="2"/>
+                <line x1="200" y1="210" x2="200" y2="230" stroke="var(--accent2)" stroke-width="2"/>
+
+                <!-- Zone de près (45°) -->
+                <line x1="200" y1="230" x2="80" y2="110" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4,3"/>
+                <line x1="200" y1="230" x2="320" y2="110" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4,3"/>
+
+                <!-- Zone interdite (face au vent) -->
+                <path d="M200 230 L80 110 A170 170 0 0 1 320 110 Z" fill="rgba(239,68,68,0.08)" stroke="none"/>
+                <text x="200" y="135" text-anchor="middle" fill="var(--red)" font-size="11" font-weight="600" font-family="Inter,sans-serif">ZONE</text>
+                <text x="200" y="150" text-anchor="middle" fill="var(--red)" font-size="11" font-weight="600" font-family="Inter,sans-serif">INTERDITE</text>
+
+                <!-- Labels allures - côté tribord -->
+                <circle cx="100" cy="155" r="4" fill="var(--accent)"/>
+                <text x="60" y="155" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Près</text>
+
+                <circle cx="60" cy="230" r="4" fill="var(--accent)"/>
+                <text x="22" y="230" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Travers</text>
+
+                <circle cx="85" cy="320" r="4" fill="var(--accent)"/>
+                <text x="42" y="325" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Largue</text>
+
+                <circle cx="140" cy="380" r="4" fill="var(--accent)"/>
+                <text x="95" y="390" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Grand</text>
+                <text x="95" y="404" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">largue</text>
+
+                <!-- Vent arrière -->
+                <circle cx="200" cy="400" r="4" fill="var(--accent)"/>
+                <text x="200" y="418" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Vent arrière</text>
+
+                <!-- Labels - côté bâbord (symétrique) -->
+                <circle cx="300" cy="155" r="4" fill="var(--accent)"/>
+                <text x="340" y="155" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Près</text>
+
+                <circle cx="340" cy="230" r="4" fill="var(--accent)"/>
+                <text x="378" y="230" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Travers</text>
+
+                <circle cx="315" cy="320" r="4" fill="var(--accent)"/>
+                <text x="358" y="325" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Largue</text>
+
+                <circle cx="260" cy="380" r="4" fill="var(--accent)"/>
+                <text x="305" y="390" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">Grand</text>
+                <text x="305" y="404" text-anchor="middle" fill="var(--accent2)" font-size="12" font-weight="700" font-family="Inter,sans-serif">largue</text>
+
+                <!-- Lignes vers les points -->
+                <line x1="200" y1="230" x2="100" y2="155" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="60" y2="230" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="85" y2="320" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="140" y2="380" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="200" y2="400" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="300" y2="155" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="340" y2="230" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="315" y2="320" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="200" y1="230" x2="260" y2="380" stroke="var(--accent)" stroke-width="1.5" opacity="0.4"/>
+            </svg>
+
+            <div class="cards" style="flex:1;min-width:280px;">
+                <div class="card" data-popup="allure-pres">
+                    <div class="card-title">Près</div>
+                    <div class="card-desc">~45° du vent. Voiles bordées, bateau gîté. On remonte au vent.</div>
+                </div>
+                <div class="card" data-popup="allure-travers">
+                    <div class="card-title">Travers</div>
+                    <div class="card-desc">~90° du vent. Voiles à mi-course, allure rapide et confortable.</div>
+                </div>
+                <div class="card" data-popup="allure-largue">
+                    <div class="card-title">Largue</div>
+                    <div class="card-desc">~120° du vent. Voiles bien choquées, allure la plus rapide.</div>
+                </div>
+                <div class="card" data-popup="allure-grandlargue">
+                    <div class="card-title">Grand largue</div>
+                    <div class="card-desc">~150° du vent. On envoie le spi, vent presque arrière.</div>
+                </div>
+                <div class="card" data-popup="allure-ventarriere">
+                    <div class="card-title">Vent arrière</div>
+                    <div class="card-desc">180° du vent. Voiles en ciseaux ou spi, attention à l'empannage.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LES POSTES -->
+    <section id="postes">
+        <h2>Trouve ton poste !</h2>
+        <p class="section-subtitle">Chaque équipier a un rôle clé</p>
+        <div class="cards">
+            <div class="card" data-popup="poste-barreur">
+                <div class="card-icon">&#127919;</div>
+                <div class="card-title">Barreur / Skipper</div>
+                <div class="card-desc">Cap, départs, sécurité, cadence des manœuvres.</div>
+                <div class="card-profile">Le chef d'orchestre</div>
+            </div>
+            <div class="card" data-popup="poste-tacticien">
+                <div class="card-icon">&#128065;</div>
+                <div class="card-title">Tacticien</div>
+                <div class="card-desc">Observe le plan d'eau, annonce les risées et bascules de vent.</div>
+                <div class="card-profile">T'es observateur et stratégique ?</div>
+            </div>
+            <div class="card" data-popup="poste-regleur-gv">
+                <div class="card-icon">&#9881;</div>
+                <div class="card-title">Régleur Grand-voile</div>
+                <div class="card-desc">Écoute, chariot, cunningham. Ajuste la puissance en continu.</div>
+                <div class="card-profile">T'es réactif et précis ?</div>
+            </div>
+            <div class="card" data-popup="poste-pianiste">
+                <div class="card-icon">&#127899;</div>
+                <div class="card-title">Pianiste</div>
+                <div class="card-desc">Drisses, hale-bas, séquençage. Le chef des manœuvres au pied de mât.</div>
+                <div class="card-profile">T'es méthodique et organisé ?</div>
+            </div>
+            <div class="card" data-popup="poste-regleur-foc">
+                <div class="card-icon">&#128170;</div>
+                <div class="card-title">Régleurs foc / spi</div>
+                <div class="card-desc">Écoutes, bras, reprises aux winchs. Ça tire fort !</div>
+                <div class="card-profile">T'es costaud et t'aimes l'action ?</div>
+            </div>
+            <div class="card" data-popup="poste-homme-pont">
+                <div class="card-icon">&#129495;</div>
+                <div class="card-title">Homme de pont</div>
+                <div class="card-desc">Tangon, préparation du spi, manœuvres à l'avant du bateau.</div>
+                <div class="card-profile">T'es agile et t'as pas le vertige ?</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGLES D'OR -->
+    <section id="regles">
+        <h2>Les 3 règles d'or</h2>
+        <p class="section-subtitle">À connaître par cœur</p>
+        <div class="rules">
+            <div class="rule">
+                <div class="rule-number">1</div>
+                <div class="rule-text"><strong>Tribord est prioritaire.</strong><br>Un bateau bâbord (vent à gauche) doit s'écarter d'un bateau tribord (vent à droite).</div>
+            </div>
+            <div class="rule">
+                <div class="rule-number">2</div>
+                <div class="rule-text"><strong>Une seule voix pour les ordres.</strong><br>Le skipper commande. Les autres confirment : "Pare !"</div>
+            </div>
+            <div class="rule">
+                <div class="rule-number">3</div>
+                <div class="rule-text"><strong>Une main pour soi, une main pour le bateau.</strong><br>Toujours se tenir. Se déplacer bas et face à l'avant.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VOCABULAIRE -->
+    <section id="vocabulaire">
+        <h2>10 mots à retenir</h2>
+        <p class="section-subtitle">Le minimum vital pour comprendre les ordres</p>
+        <div class="vocab-grid">
+            <div class="vocab-item" data-popup="vocab-virer">
+                <div class="vocab-cmd">Paré à virer ?</div>
+                <div class="vocab-meaning">On prépare le virement</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-pare">
+                <div class="vocab-cmd">Paré !</div>
+                <div class="vocab-meaning">Je suis prêt</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-onvire">
+                <div class="vocab-cmd">On vire !</div>
+                <div class="vocab-meaning">Le bateau change de bord</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-empanne">
+                <div class="vocab-cmd">Empanne !</div>
+                <div class="vocab-meaning">Changement de bord au portant</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-borde">
+                <div class="vocab-cmd">Borde !</div>
+                <div class="vocab-meaning">Tire sur l'écoute (la corde)</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-choque">
+                <div class="vocab-cmd">Choque !</div>
+                <div class="vocab-meaning">Relâche l'écoute</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-hisse">
+                <div class="vocab-cmd">Hisse !</div>
+                <div class="vocab-meaning">Monte la voile</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-affale">
+                <div class="vocab-cmd">Affale !</div>
+                <div class="vocab-meaning">Descends la voile</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-tribord">
+                <div class="vocab-cmd">Tribord !</div>
+                <div class="vocab-meaning">On est prioritaire, écartez-vous</div>
+            </div>
+            <div class="vocab-item" data-popup="vocab-souslevent">
+                <div class="vocab-cmd">Sous le vent !</div>
+                <div class="vocab-meaning">Côté opposé au vent</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIREMENT DE BORD -->
+    <section id="virement">
+        <h2>Manœuvre : le virement de bord</h2>
+        <p class="section-subtitle">La manœuvre la plus fréquente en régate</p>
+        <div class="steps-row">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">Le skipper annonce : "Paré à virer ?"</div>
+                <div class="step-role">Skipper</div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">Tout le monde répond : "Paré !"</div>
+                <div class="step-role">Tout l'équipage</div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-text">"On vire !" Le barreur pousse la barre doucement</div>
+                <div class="step-role">Skipper</div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-text">Le régleur choque le foc au passage de l'axe</div>
+                <div class="step-role">Régleur sortant</div>
+            </div>
+            <div class="step">
+                <div class="step-num">5</div>
+                <div class="step-text">L'autre régleur borde le foc de l'autre côté</div>
+                <div class="step-role">Régleur entrant</div>
+            </div>
+            <div class="step">
+                <div class="step-num">6</div>
+                <div class="step-text">L'équipage traverse pour se mettre au vent</div>
+                <div class="step-role">Tout l'équipage</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE DEPART -->
+    <section id="depart">
+        <h2>Le départ de régate</h2>
+        <p class="section-subtitle">5 minutes qui comptent</p>
+        <div class="two-cols">
+            <div class="col">
+                <h3>La séquence</h3>
+                <ul>
+                    <li><strong>T-5 min</strong> : signal d'avertissement</li>
+                    <li><strong>T-4 min</strong> : signal préparatoire</li>
+                    <li><strong>T-1 min</strong> : préparatoire affalé</li>
+                    <li><strong>T-0</strong> : DEPART !</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Notre stratégie</h3>
+                <ul>
+                    <li>Départ 2e rideau, propre, avec de la vitesse</li>
+                    <li>Garder de l'eau libre sous le vent</li>
+                    <li>Ne PAS chercher le premier rang</li>
+                    <li>Un départ propre > un départ agressif</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- LES NOEUDS -->
+    <section id="noeuds">
+        <h2>Les 4 nœuds essentiels</h2>
+        <p class="section-subtitle">On s'entraîne ensemble avec des bouts !</p>
+        <div class="knots-grid">
+            <div class="knot-card" data-popup="noeud-huit">
+                <div class="knot-icon">&#10060;</div>
+                <div class="knot-name">Nœud de huit</div>
+                <div class="knot-usage">Nœud d'arrêt en bout de cordage</div>
+            </div>
+            <div class="knot-card" data-popup="noeud-chaise">
+                <div class="knot-icon">&#128270;</div>
+                <div class="knot-name">Nœud de chaise</div>
+                <div class="knot-usage">Boucle qui ne se serre pas</div>
+            </div>
+            <div class="knot-card" data-popup="noeud-cabestan">
+                <div class="knot-icon">&#128208;</div>
+                <div class="knot-name">Nœud de cabestan</div>
+                <div class="knot-usage">Amarrage sur un poteau/bollard</div>
+            </div>
+            <div class="knot-card" data-popup="noeud-taquet">
+                <div class="knot-icon">&#9875;</div>
+                <div class="knot-name">Nœud de taquet</div>
+                <div class="knot-usage">Fixer un cordage sur un taquet</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz">
+        <h2>Quiz</h2>
+        <p class="section-subtitle">Teste tes connaissances !</p>
+
+        <div class="quiz-block">
+            <div class="quiz-question">Un bateau arrive sur tribord, tu es sur babord. Que fais-tu ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Je crie plus fort que lui pour l'intimider</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Je m'écarte, il est prioritaire</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Je fonce, le plus rapide gagne</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-block">
+            <div class="quiz-question">Le skipper dit "Paré à virer ?". Que réponds-tu ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Pourquoi ?</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Attends, je finis mon sandwich</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Paré !</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-block">
+            <div class="quiz-question">Que signifie "Choque !" ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Y'a un problème !</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Relâche l'écoute (la corde)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Tire sur l'écoute</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+    </section>
+
+    <!-- SECURITE -->
+    <section id="securite">
+        <h2>Sécurité à bord</h2>
+        <p class="section-subtitle">La sécurité, c'est non négociable</p>
+        <div class="checklist">
+            <div class="check-item"><div class="check-icon">&#129509;</div> Gilet de sauvetage porté en permanence</div>
+            <div class="check-item"><div class="check-icon">&#128588;</div> Une main pour soi, une pour le bateau</div>
+            <div class="check-item"><div class="check-icon">&#9888;&#65039;</div> Attention aux winchs : doigts et bouts</div>
+            <div class="check-item"><div class="check-icon">&#128064;</div> Zone du tangon : risque de choc</div>
+            <div class="check-item"><div class="check-icon">&#128225;</div> VHF sur le canal course</div>
+            <div class="check-item"><div class="check-icon">&#128166;</div> Procédure homme à la mer : on désigne un guetteur</div>
+            <div class="check-item"><div class="check-icon">&#127774;</div> Crème solaire + eau en quantité</div>
+            <div class="check-item"><div class="check-icon">&#128094;</div> Chaussures grip, pas de coton, couches</div>
+        </div>
+    </section>
+
+    <!-- JOUR J -->
+    <section id="checklist">
+        <h2>Jour J : la checklist</h2>
+        <p class="section-subtitle">Tout ce qu'il faut préparer</p>
+        <div class="two-cols">
+            <div class="col">
+                <h3>À apporter</h3>
+                <ul>
+                    <li>Tenue de voile (pas de coton)</li>
+                    <li>Chaussures à semelle grip</li>
+                    <li>Gants de voile</li>
+                    <li>Lunettes avec cordon</li>
+                    <li>Crème solaire</li>
+                    <li>Eau + barres énergétiques</li>
+                    <li>Sac étanche pour les affaires</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Le matin</h3>
+                <ul>
+                    <li>Arriver tôt : découverte du bateau</li>
+                    <li>Chacun touche chaque bout</li>
+                    <li>Brief météo du jour</li>
+                    <li>Attribution définitive des postes</li>
+                    <li>Check-list bateau ensemble</li>
+                    <li>On respire, on s'amuse</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAT D'ESPRIT -->
+    <section id="esprit">
+        <h2>L'état d'esprit</h2>
+        <p class="section-subtitle">Ce qui fait la différence</p>
+        <div class="rules">
+            <div class="rule">
+                <div class="rule-number" style="font-size:1.8em;">&#128170;</div>
+                <div class="rule-text"><strong>Zéro erreur > vitesse.</strong><br>Une régate propre bat un bateau rapide qui plante ses manœuvres.</div>
+            </div>
+            <div class="rule">
+                <div class="rule-number" style="font-size:1.8em;">&#128483;</div>
+                <div class="rule-text"><strong>On communique, on ne crie pas.</strong><br>Si le skipper crie, l'équipage se crispe et fait plus d'erreurs.</div>
+            </div>
+            <div class="rule">
+                <div class="rule-number" style="font-size:1.8em;">&#127881;</div>
+                <div class="rule-text"><strong>On célèbre chaque bonne manœuvre.</strong><br>Débrief rapide entre les manches : 1 point positif, 1 axe d'amélioration.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <h2>On y va !</h2>
+        <p>Des questions ? Prochain rendez-vous : atelier nœuds + simulation à sec</p>
+    </div>
+
+</div>
+
+<script>
+// --- Surlignage nav active au scroll ---
+const sections = document.querySelectorAll('section, .hero');
+const navLinks = document.querySelectorAll('.sidenav a');
+
+function updateActiveNav() {
+    let scrollPos = window.scrollY + 120;
+    let current = '';
+
+    sections.forEach(s => {
+        if (s.offsetTop <= scrollPos) {
+            current = s.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+
+    // Barre de progression
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+    document.getElementById('progressFill').style.width = progress + '%';
+}
+
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
+
+// --- Popups ---
+const popups = {
+    // BATEAU
+    'fiche-technique': `
+        <div class="modal-icon">&#128207;</div>
+        <h3>Fiche technique du Grand Surprise</h3>
+        <p>Le <strong>Grand Surprise</strong> est un voilier monotype conçu par le chantier <strong>Archambault</strong> à Dangé-Saint-Romain (Vienne). C'est un des bateaux les plus utilisés en régate habitable en France.</p>
+        <ul>
+            <li><strong>Longueur</strong> : 9,50 m (31 pieds)</li>
+            <li><strong>Largeur</strong> : 3,20 m</li>
+            <li><strong>Tirant d'eau</strong> : 1,95 m (quille fixe)</li>
+            <li><strong>Déplacement</strong> : environ 2 800 kg</li>
+            <li><strong>Surface de voilure au près</strong> : ~55 m²</li>
+            <li><strong>Architecte</strong> : Jean Berret / Olivier Racoupeau</li>
+        </ul>
+        <div class="tip">Monotype = tous les bateaux sont identiques. C'est l'équipage qui fait la différence, pas le matériel !</div>
+    `,
+    'voilure': `
+        <div class="modal-icon">&#9881;</div>
+        <h3>La voilure</h3>
+        <p>Le Grand Surprise navigue avec 3 voiles principales :</p>
+        <ul>
+            <li><strong>Grand-voile (GV)</strong> : la voile principale, fixée au mât et à la bôme. On la règle avec l'écoute de GV, le chariot et le hale-bas.</li>
+            <li><strong>Foc</strong> : la voile avant, fixée à l'étai. On la règle avec les écoutes de foc (une de chaque côté).</li>
+            <li><strong>Spinnaker (spi)</strong> : grande voile légère et colorée, utilisée au portant (vent arrière). Symétrique, il nécessite un tangon pour le tenir.</li>
+        </ul>
+        <div class="tip">Au près (face au vent), on utilise GV + foc. Au portant (vent arrière), on envoie le spi pour aller plus vite.</div>
+    `,
+    'forces': `
+        <div class="modal-icon">&#128170;</div>
+        <h3>Pourquoi le Grand Surprise ?</h3>
+        <p>C'est le bateau idéal pour un équipage mixte débutants/confirmés :</p>
+        <ul>
+            <li><strong>Tolérant</strong> : il pardonne les petites erreurs de réglage sans devenir dangereux</li>
+            <li><strong>Réactif</strong> : il répond vite aux ajustements, donc on apprend plus vite</li>
+            <li><strong>Sensible</strong> : chaque réglage se ressent, ce qui motive à s'améliorer</li>
+            <li><strong>5 à 7 équipiers</strong> : assez d'espace pour que chacun ait un rôle sans être les uns sur les autres</li>
+        </ul>
+        <div class="tip">Sur un Grand Surprise, un bon travail d'équipe bat toujours un équipage de champions désorganisés.</div>
+    `,
+
+    // AMURES
+    'amure-tribord': `
+        <div class="modal-icon">&#9654;</div>
+        <h3>Tribord amure</h3>
+        <p>Le bateau est <strong>tribord amure</strong> quand le vent arrive par le côté <strong>droit</strong> (tribord) du bateau.</p>
+        <ul>
+            <li>Les voiles sont du côté <strong>gauche</strong> (bâbord) — elles sont poussées du côté opposé au vent</li>
+            <li>L'équipage se place généralement à <strong>droite</strong> (au vent) pour contrer la gîte</li>
+            <li>Le bateau est <strong>prioritaire</strong> sur un bateau bâbord amure</li>
+        </ul>
+        <div class="tip">Moyen mnémotechnique : regarde d'où vient le vent. S'il arrive par ta droite quand tu regardes vers l'avant, tu es tribord amure.</div>
+    `,
+    'amure-babord': `
+        <div class="modal-icon">&#9664;</div>
+        <h3>Bâbord amure</h3>
+        <p>Le bateau est <strong>bâbord amure</strong> quand le vent arrive par le côté <strong>gauche</strong> (bâbord) du bateau.</p>
+        <ul>
+            <li>Les voiles sont du côté <strong>droit</strong> (tribord)</li>
+            <li>L'équipage se place à <strong>gauche</strong> (au vent)</li>
+            <li>Le bateau doit <strong>s'écarter</strong> d'un bateau tribord amure</li>
+        </ul>
+        <div class="tip">En régate, quand deux bateaux se croisent, celui en bâbord amure doit manœuvrer pour laisser passer le tribord. C'est LA règle fondamentale.</div>
+    `,
+
+    // ALLURES
+    'allure-pres': `
+        <div class="modal-icon">&#9650;</div>
+        <h3>Le près (~45° du vent)</h3>
+        <p>L'allure de <strong>remontée au vent</strong>. Le bateau navigue le plus près possible de la direction d'où vient le vent.</p>
+        <ul>
+            <li><strong>Voiles</strong> : bordées au maximum, très plates</li>
+            <li><strong>Gîte</strong> : le bateau penche, l'équipage est au rappel (au vent)</li>
+            <li><strong>Vitesse</strong> : modérée mais on gagne du terrain au vent</li>
+            <li><strong>Réglages</strong> : très fins, chaque détail compte</li>
+        </ul>
+        <p>On ne peut pas naviguer directement face au vent (zone interdite à ~45° de chaque côté). Pour atteindre un point au vent, on fait des <strong>bords de près</strong> en zigzag.</p>
+        <div class="tip">Repère visuel : les penons du foc doivent tous voler à l'horizontale. Si le penon intérieur décroche, tu es trop près du vent : abats (écarte-toi du vent).</div>
+    `,
+    'allure-travers': `
+        <div class="modal-icon">&#9654;</div>
+        <h3>Le travers (~90° du vent)</h3>
+        <p>Le vent arrive <strong>perpendiculairement</strong> au bateau. C'est souvent l'allure la plus <strong>confortable</strong>.</p>
+        <ul>
+            <li><strong>Voiles</strong> : à mi-course, ni trop bordées ni trop choquées</li>
+            <li><strong>Gîte</strong> : modérée</li>
+            <li><strong>Vitesse</strong> : bonne, le bateau avance bien</li>
+            <li><strong>Pilotage</strong> : assez facile, bon pour les débutants</li>
+        </ul>
+        <div class="tip">C'est l'allure idéale pour s'échauffer et prendre ses repères avant la régate.</div>
+    `,
+    'allure-largue': `
+        <div class="modal-icon">&#128168;</div>
+        <h3>Le largue (~120° du vent)</h3>
+        <p>Le vent arrive par le <strong>trois-quarts arrière</strong>. C'est souvent l'allure la plus <strong>rapide</strong> !</p>
+        <ul>
+            <li><strong>Voiles</strong> : bien choquées, le spi peut être envoyé</li>
+            <li><strong>Gîte</strong> : faible, le bateau est assez plat</li>
+            <li><strong>Vitesse</strong> : maximale, le bateau surfe sur les vagues</li>
+            <li><strong>Sensations</strong> : c'est là qu'on s'éclate le plus !</li>
+        </ul>
+        <div class="tip">Au largue, le barreur doit rester concentré : la vitesse augmente vite et les réactions du bateau aussi. Attention aux empannages involontaires.</div>
+    `,
+    'allure-grandlargue': `
+        <div class="modal-icon">&#127754;</div>
+        <h3>Le grand largue (~150° du vent)</h3>
+        <p>Le vent arrive presque par l'arrière. On navigue avec le <strong>spinnaker</strong> déployé.</p>
+        <ul>
+            <li><strong>Voiles</strong> : spi gonflé, GV très choquée</li>
+            <li><strong>Tangon</strong> : en place pour tenir le spi</li>
+            <li><strong>Pilotage</strong> : il faut rester concentré pour ne pas empanner accidentellement</li>
+            <li><strong>Équipage</strong> : le régleur de spi travaille en permanence pour garder le spi stable</li>
+        </ul>
+        <div class="tip">Le spi a tendance à "osciller" au grand largue. Le régleur doit constamment ajuster le bras et l'écoute pour le garder gonflé.</div>
+    `,
+    'allure-ventarriere': `
+        <div class="modal-icon">&#11015;</div>
+        <h3>Le vent arrière (180°)</h3>
+        <p>Le vent vient <strong>exactement de l'arrière</strong>. Allure trompeuse : on sent peu le vent mais le bateau avance.</p>
+        <ul>
+            <li><strong>Voiles en ciseaux</strong> : GV d'un côté, foc de l'autre (sans spi)</li>
+            <li><strong>Avec spi</strong> : le spi est déployé plein face, le tangon perpendiculaire au bateau</li>
+            <li><strong>Danger</strong> : risque d'empannage involontaire si le barreur n'est pas attentif</li>
+            <li><strong>Roulis</strong> : le bateau peut rouler d'un bord à l'autre</li>
+        </ul>
+        <div class="tip">Au vent arrière, on a l'impression qu'il n'y a pas de vent car on va dans la même direction que lui. Mais attention : la bôme peut empanner violemment si on dévie !</div>
+    `,
+
+    // ZONES
+    'zone-avant': `
+        <div class="modal-icon">&#9875;</div>
+        <h3>Zone Avant</h3>
+        <p>L'avant du bateau, de l'étrave jusqu'au mât. C'est le domaine de l'<strong>homme de pont</strong>.</p>
+        <ul>
+            <li><strong>Étai</strong> : câble qui tient le mât vers l'avant, on y attache le foc</li>
+            <li><strong>Balcon avant</strong> : rambarde de sécurité à la proue</li>
+            <li><strong>Tangon</strong> : perche horizontale pour tenir le spinnaker</li>
+            <li><strong>Point d'amure du spi</strong> : là où on fixe le coin bas du spinnaker</li>
+        </ul>
+        <div class="tip">Zone exposée aux vagues et aux mouvements : toujours se tenir et s'y déplacer accroupi. En cas de doute, on attend un moment calme.</div>
+    `,
+    'zone-mat': `
+        <div class="modal-icon">&#127899;</div>
+        <h3>Zone Mât</h3>
+        <p>Le pied de mât et ses environs. C'est le poste du <strong>pianiste</strong>, celui qui gère les drisses.</p>
+        <ul>
+            <li><strong>Drisses</strong> : cordages qui servent à hisser les voiles (drisse de GV, drisse de foc, drisse de spi)</li>
+            <li><strong>Hale-bas</strong> : empêche la bôme de remonter</li>
+            <li><strong>Cunningham</strong> : règle la tension du guindant de la grand-voile</li>
+            <li><strong>Pataras</strong> : câble arrière qui règle le cintrage du mât</li>
+        </ul>
+        <div class="tip">Le pianiste doit connaître chaque bout par cœur. Astuce : suivre les cordages de la main pour les identifier avant le départ.</div>
+    `,
+    'zone-cockpit': `
+        <div class="modal-icon">&#9881;</div>
+        <h3>Zone Cockpit</h3>
+        <p>Le cœur de l'action. C'est là que sont les <strong>régleurs</strong> et le <strong>barreur</strong>.</p>
+        <ul>
+            <li><strong>Winchs</strong> : treuils qui démultiplient la force pour border les écoutes</li>
+            <li><strong>Écoutes de foc</strong> : une de chaque côté, passées dans les winchs</li>
+            <li><strong>Chariot de GV</strong> : rail transversal pour décaler le point de tire de la grand-voile</li>
+            <li><strong>Compas</strong> : boussole marine pour suivre le cap</li>
+        </ul>
+        <div class="tip">Au winch : toujours 3 tours minimum avant de border. Ne jamais mettre ses doigts près du tambour quand l'écoute est sous tension !</div>
+    `,
+    'zone-arriere': `
+        <div class="modal-icon">&#127919;</div>
+        <h3>Zone Arrière</h3>
+        <p>Le poste de commandement. Le <strong>barreur/skipper</strong> y dirige le bateau.</p>
+        <ul>
+            <li><strong>Barre</strong> : barre franche (stick) qui commande le safran</li>
+            <li><strong>Safran</strong> : gouvernail immergé sous la coque</li>
+            <li><strong>Écoute de GV</strong> : souvent à portée du barreur pour les réglages fins</li>
+        </ul>
+        <div class="tip">La barre se pousse du côté opposé à la direction souhaitée : pousser à bâbord fait tourner à tribord. Ça devient naturel très vite !</div>
+    `,
+
+    // POSTES
+    'poste-barreur': `
+        <div class="modal-icon">&#127919;</div>
+        <h3>Barreur / Skipper</h3>
+        <p>Le barreur tient la barre et donne les ordres de manœuvre. Il est responsable du cap, de la sécurité et du timing.</p>
+        <ul>
+            <li>Maintenir le cap optimal en fonction du vent et de la mer</li>
+            <li>Annoncer les manœuvres suffisamment à l'avance</li>
+            <li>Garder une vision globale : plan d'eau, autres bateaux, bouées</li>
+            <li>Gérer la cadence : ne jamais enchaîner trop vite</li>
+            <li>Rester calme : le ton du skipper donne le ton à l'équipage</li>
+        </ul>
+        <div class="tip">Un bon skipper parle peu mais clairement. Les ordres doivent être courts et sans ambiguïté.</div>
+    `,
+    'poste-tacticien': `
+        <div class="modal-icon">&#128065;</div>
+        <h3>Tacticien</h3>
+        <p>Les yeux de l'équipage. Il observe tout ce qui se passe autour et conseille le skipper.</p>
+        <ul>
+            <li>Observer les risées (rafales) sur l'eau : zones plus sombres = plus de vent</li>
+            <li>Repérer les bascules de vent (changements de direction)</li>
+            <li>Surveiller les concurrents et les droits de route</li>
+            <li>Connaître le parcours : ordre des bouées, côté à laisser</li>
+            <li>Compter le temps avant le départ</li>
+        </ul>
+        <div class="tip">Regarde loin devant (30 secondes d'avance sur l'eau). Les indices sont dans les vaguelettes, les drapeaux à terre, et les autres bateaux.</div>
+    `,
+    'poste-regleur-gv': `
+        <div class="modal-icon">&#9881;</div>
+        <h3>Régleur Grand-voile</h3>
+        <p>Il ajuste la puissance de la grand-voile en permanence selon l'allure et la force du vent.</p>
+        <ul>
+            <li><strong>Écoute de GV</strong> : border (tirer) au près, choquer (lâcher) au portant</li>
+            <li><strong>Chariot</strong> : le déplacer au vent pour reprendre de la puissance, sous le vent pour dépuissancer</li>
+            <li><strong>Cunningham</strong> : tendre pour aplatir la voile dans le vent fort</li>
+            <li><strong>Hale-bas</strong> : contrôle la vrille de la voile</li>
+        </ul>
+        <div class="tip">Repère les penons (rubans) sur la grand-voile : ils doivent tous voler à l'horizontale. Si le penon du haut décroche, choque un peu ou ouvre le chariot.</div>
+    `,
+    'poste-pianiste': `
+        <div class="modal-icon">&#127899;</div>
+        <h3>Pianiste</h3>
+        <p>Le maestro du pied de mât. Il prépare, séquence et exécute les manœuvres de drisses.</p>
+        <ul>
+            <li>Hisser et affaler les voiles proprement</li>
+            <li>Préparer le spi avant l'envoi (le sortir du sac dans le bon ordre)</li>
+            <li>Séquencer : chaque action dans le bon ordre, sans précipitation</li>
+            <li>Lovage : ranger les bouts en ordre pour qu'ils ne s'emmêlent pas</li>
+        </ul>
+        <div class="tip">Avant chaque manœuvre, vérifie que rien n'est coincé ou emmêlé. 90% des problèmes de manœuvre viennent d'un bout mal rangé.</div>
+    `,
+    'poste-regleur-foc': `
+        <div class="modal-icon">&#128170;</div>
+        <h3>Régleurs foc / spi</h3>
+        <p>Les bras forts de l'équipage. Ils gèrent les écoutes de foc et les bras de spi.</p>
+        <ul>
+            <li><strong>Au virement</strong> : choquer l'écoute sous le vent, border de l'autre côté au winch</li>
+            <li><strong>Au près</strong> : réglage fin du foc pour que les penons soient alignés</li>
+            <li><strong>Au spi</strong> : gérer les bras et écoutes, maintenir le spi gonflé et stable</li>
+            <li>Coordination : le régleur sortant et le régleur entrant doivent être synchronisés</li>
+        </ul>
+        <div class="tip">Au winch : une main tient le brin mou (la queue), l'autre actionne la manivelle. Ne jamais lâcher la queue sous tension !</div>
+    `,
+    'poste-homme-pont': `
+        <div class="modal-icon">&#129495;</div>
+        <h3>Homme de pont</h3>
+        <p>L'acrobate du bord. Il travaille à l'avant du bateau pour les manœuvres de voiles d'avant et de spi.</p>
+        <ul>
+            <li>Préparer et envoyer le spi : fixer le tangon, envoyer la drisse</li>
+            <li>Affaler le spi : le récupérer proprement sous le vent</li>
+            <li>Gérer le tangon : le mettre en place, le régler, le ranger</li>
+            <li>Changer de foc si nécessaire (rare en régate)</li>
+        </ul>
+        <div class="tip">Toujours s'accrocher. Travailler à genoux plutôt que debout. Communiquer avec le cockpit : "C'est prêt à l'avant !"</div>
+    `,
+
+    // NŒUDS
+    'noeud-huit': `
+        <div class="modal-icon">&#10060;</div>
+        <h3>Nœud de huit</h3>
+        <p>Le nœud de base en voile. Il sert de <strong>nœud d'arrêt</strong> pour empêcher un cordage de filer à travers une poulie ou un taquet.</p>
+        <p><strong>Comment le faire :</strong></p>
+        <ul>
+            <li>Faire une boucle avec le bout</li>
+            <li>Passer le brin libre par-dessus puis par-dessous</li>
+            <li>Repasser dans la boucle</li>
+            <li>Serrer : on obtient un "8" bien visible</li>
+        </ul>
+        <div class="tip">Il se défait facilement même après avoir été sous forte tension. C'est le premier nœud à maîtriser !</div>
+    `,
+    'noeud-chaise': `
+        <div class="modal-icon">&#128270;</div>
+        <h3>Nœud de chaise</h3>
+        <p>Le roi des nœuds marins. Il forme une <strong>boucle qui ne se serre pas</strong>, même sous charge.</p>
+        <p><strong>Moyen mnémotechnique :</strong> "Le serpent sort du puits, fait le tour de l'arbre et rentre dans le puits."</p>
+        <ul>
+            <li>Faire une petite boucle (le puits)</li>
+            <li>Passer le brin libre par-dessous dans la boucle (le serpent sort)</li>
+            <li>Faire le tour du brin principal (l'arbre)</li>
+            <li>Repasser dans la boucle (le serpent rentre)</li>
+        </ul>
+        <div class="tip">Utilisé pour attacher une écoute au point d'écoute du foc, pour s'amarrer à un anneau, ou en sécurité pour faire un harnais d'urgence.</div>
+    `,
+    'noeud-cabestan': `
+        <div class="modal-icon">&#128208;</div>
+        <h3>Nœud de cabestan</h3>
+        <p>Nœud d'amarrage rapide autour d'un <strong>poteau, bollard ou chandelier</strong>.</p>
+        <ul>
+            <li>Faire un tour autour du support</li>
+            <li>Croiser par-dessus</li>
+            <li>Faire un deuxième tour</li>
+            <li>Passer le brin sous le croisement</li>
+        </ul>
+        <p>Il tient bien sous tension mais se défait facilement quand on le veut.</p>
+        <div class="tip">Idéal pour s'amarrer rapidement à un quai ou attacher un pare-battage. Attention : il peut glisser sur un support lisse.</div>
+    `,
+    'noeud-taquet': `
+        <div class="modal-icon">&#9875;</div>
+        <h3>Nœud de taquet</h3>
+        <p>Indispensable pour <strong>fixer un cordage sur un taquet</strong> (les petites pièces en forme de T sur le pont).</p>
+        <ul>
+            <li>Un tour complet autour de la base du taquet</li>
+            <li>Faire des "8" en croisant par-dessus</li>
+            <li>Terminer par un demi-tour inversé (demi-clé)</li>
+            <li>Le cordage doit tenir seul sans qu'on le tienne</li>
+        </ul>
+        <div class="tip">Ne jamais faire trop de tours : 1 tour de base + 2 croisements en 8 + 1 demi-clé suffit. Trop de tours = impossible à larguer vite en urgence.</div>
+    `,
+
+    // VOCABULAIRE
+    'vocab-virer': `
+        <h3>Paré à virer ?</h3>
+        <p>C'est la question que le skipper pose à tout l'équipage <strong>avant</strong> d'initier un virement de bord (passage du vent d'un côté à l'autre, par l'avant du bateau).</p>
+        <p>Quand tu entends ça :</p>
+        <ul>
+            <li>Vérifie que ton écoute est prête à être choquée ou bordée</li>
+            <li>Regarde où tu vas te déplacer après le virement</li>
+            <li>Réponds <strong>"Paré !"</strong> quand tu es prêt</li>
+        </ul>
+        <div class="tip">Ne réponds "Paré" que si tu es vraiment prêt. Il vaut mieux attendre 5 secondes qu'un virement raté.</div>
+    `,
+    'vocab-pare': `
+        <h3>Paré !</h3>
+        <p>La réponse à "Paré à virer ?". Ça signifie <strong>"je suis prêt, on peut y aller"</strong>.</p>
+        <p>Le skipper attend que tout le monde ait répondu "Paré" avant de lancer la manœuvre.</p>
+        <div class="tip">Si tu n'es pas prêt, dis-le clairement : "Attends !" — c'est bien mieux qu'un virement raté.</div>
+    `,
+    'vocab-onvire': `
+        <h3>On vire !</h3>
+        <p>L'ordre d'exécution du virement. Le barreur pousse la barre, le bateau commence à tourner face au vent puis bascule de l'autre côté.</p>
+        <ul>
+            <li>Le foc se dégonfle au passage de l'axe du vent</li>
+            <li>Le régleur sortant choque, le régleur entrant borde</li>
+            <li>L'équipage change de côté</li>
+        </ul>
+    `,
+    'vocab-empanne': `
+        <h3>Empanne !</h3>
+        <p>Changement de bord par <strong>l'arrière du bateau</strong> (vent arrière). La bôme passe d'un côté à l'autre.</p>
+        <ul>
+            <li>Plus délicat qu'un virement car la bôme peut passer violemment</li>
+            <li>Il faut border la GV avant l'empannage puis la re-choquer après</li>
+            <li>Toujours baisser la tête quand la bôme passe !</li>
+        </ul>
+        <div class="tip">Attention danger : la bôme peut frapper fort. Quand le skipper annonce l'empannage, baisse la tête et tiens-toi.</div>
+    `,
+    'vocab-borde': `
+        <h3>Borde !</h3>
+        <p><strong>Tire sur l'écoute</strong> pour rapprocher la voile de l'axe du bateau. On borde au près (quand on remonte au vent) pour que la voile soit bien tendue.</p>
+        <div class="tip">Border = tirer vers soi. Plus on borde, plus la voile est plate et proche du centre.</div>
+    `,
+    'vocab-choque': `
+        <h3>Choque !</h3>
+        <p><strong>Relâche l'écoute</strong> pour éloigner la voile de l'axe du bateau. On choque au portant (vent arrière) ou quand il y a trop de vent.</p>
+        <p>Choquer peut aussi être un réflexe de sécurité : en cas de rafale trop forte, on choque tout pour dépuissancer instantanément.</p>
+        <div class="tip">Choquer ≠ lâcher ! On contrôle toujours le bout en le laissant filer doucement dans la main.</div>
+    `,
+    'vocab-hisse': `
+        <h3>Hisse !</h3>
+        <p><strong>Monte la voile</strong> en tirant sur la drisse. Le pianiste hisse au pied de mât, parfois aidé par un équipier au winch.</p>
+        <ul>
+            <li>Hisser la GV : face au vent, le bateau quasi arrêté</li>
+            <li>Hisser le foc : au pied de mât, la drisse passe en tête de mât</li>
+            <li>Hisser le spi : rapidement, pour qu'il se gonfle d'un coup</li>
+        </ul>
+    `,
+    'vocab-affale': `
+        <h3>Affale !</h3>
+        <p><strong>Descends la voile</strong> en relâchant la drisse. C'est l'inverse de hisser.</p>
+        <ul>
+            <li>Affaler la GV : face au vent, choquer l'écoute, lâcher la drisse, guider la voile sur la bôme</li>
+            <li>Affaler le spi : le récupérer sous le vent, par le brin libre, avant de lâcher la drisse</li>
+        </ul>
+        <div class="tip">Quand on affale le spi, il faut d'abord le "casser" (lâcher le bras) pour qu'il se dégonfle, puis le récupérer vite.</div>
+    `,
+    'vocab-tribord': `
+        <h3>Tribord !</h3>
+        <p>Quand on crie "Tribord !", on signale aux autres bateaux qu'on est <strong>tribord amure</strong> (vent venant de la droite) et donc <strong>prioritaire</strong>.</p>
+        <p>C'est la règle n°1 de la voile : tribord est prioritaire sur bâbord.</p>
+        <div class="tip">Moyen mnémotechnique : <strong>bâbord = batterie = à gauche</strong> (comme la batterie d'un orchestre). Tribord = le reste = à droite.</div>
+    `,
+    'vocab-souslevent': `
+        <h3>Sous le vent</h3>
+        <p>Le côté du bateau <strong>opposé au vent</strong>. C'est le côté où le bateau penche (gîte).</p>
+        <ul>
+            <li><strong>Au vent</strong> = côté d'où vient le vent (côté haut)</li>
+            <li><strong>Sous le vent</strong> = côté opposé (côté bas)</li>
+        </ul>
+        <p>L'équipage se place généralement <strong>au vent</strong> pour contrebalancer la gîte. On se déplace <strong>sous le vent</strong> pour certaines manœuvres.</p>
+        <div class="tip">Pour savoir d'où vient le vent : regarde les penons, les drapeaux, ou mouille ton doigt et lève-le !</div>
+    `
+};
+
+function openModal(key) {
+    const content = popups[key];
+    if (!content) return;
+    document.getElementById('modalBody').innerHTML = content;
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+// Fermer en cliquant sur l'overlay
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+
+// Fermer avec Escape
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
+
+// Clic sur les éléments avec data-popup
+document.querySelectorAll('[data-popup]').forEach(el => {
+    el.addEventListener('click', function() {
+        openModal(this.dataset.popup);
+    });
+});
+
+// --- Quiz ---
+function checkAnswer(btn, correct) {
+    const block = btn.closest('.quiz-block');
+    const buttons = block.querySelectorAll('.quiz-btn');
+    const feedback = block.querySelector('.quiz-feedback');
+    buttons.forEach(b => {
+        b.disabled = true;
+        b.style.cursor = 'default';
+    });
+    if (correct) {
+        btn.classList.add('correct');
+        feedback.textContent = 'Bravo ! Tu es prêt pour la régate !';
+        feedback.style.background = 'rgba(34,197,94,0.1)';
+        feedback.style.color = '#16a34a';
+    } else {
+        btn.classList.add('wrong');
+        feedback.textContent = 'Pas tout à fait... mais tu sauras pour le jour J !';
+        feedback.style.background = 'rgba(239,68,68,0.06)';
+        feedback.style.color = '#dc2626';
+        buttons.forEach(b => {
+            if (!b.classList.contains('wrong')) {
+                const isCorrect = b.getAttribute('onclick').includes('true');
+                if (isCorrect) b.classList.add('correct');
+            }
+        });
+    }
+    feedback.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
