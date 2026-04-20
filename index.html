@@ -231,85 +231,6 @@
     .step-text { font-size: 0.9em; color: var(--text-muted); line-height: 1.5; }
     .step-role { font-size: 0.78em; color: var(--orange); margin-top: 6px; font-weight: 600; }
 
-    /* ---- MANOEUVRE DETAILLEE ---- */
-    .manoeuvre-box {
-        background: var(--bg2);
-        border-radius: 14px;
-        padding: 28px;
-        margin-bottom: 32px;
-        border-left: 4px solid var(--accent);
-    }
-    .manoeuvre-box h3 {
-        margin-top: 0;
-        font-size: 1.4em;
-        color: var(--accent2);
-    }
-    .manoeuvre-steps {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 20px;
-    }
-    .manoeuvre-step {
-        display: flex;
-        gap: 16px;
-        align-items: flex-start;
-    }
-    .manoeuvre-step-num {
-        background: var(--accent);
-        color: var(--bg);
-        font-weight: 900;
-        font-size: 1.1em;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-    }
-    .manoeuvre-step-content {
-        flex: 1;
-    }
-    .manoeuvre-step-title {
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 4px;
-        font-size: 1em;
-    }
-    .manoeuvre-step-desc {
-        font-size: 0.92em;
-        color: var(--text-muted);
-        line-height: 1.6;
-    }
-    .manoeuvre-step-role {
-        font-size: 0.82em;
-        color: var(--orange);
-        font-weight: 600;
-        margin-top: 4px;
-    }
-    .manoeuvre-warning {
-        background: rgba(239,68,68,0.08);
-        border-left: 3px solid var(--red);
-        padding: 12px 16px;
-        border-radius: 8px;
-        margin-top: 16px;
-        font-size: 0.9em;
-        color: var(--text);
-    }
-    .manoeuvre-warning strong {
-        color: var(--red);
-    }
-    .manoeuvre-tip {
-        background: #fff9e6;
-        border-left: 3px solid var(--accent);
-        padding: 12px 16px;
-        border-radius: 8px;
-        margin-top: 16px;
-        font-size: 0.9em;
-        color: var(--text-muted);
-    }
-
     /* ---- REGLES ---- */
     .rules { display: flex; flex-direction: column; gap: 16px; }
     .rule {
@@ -472,6 +393,129 @@
         margin-bottom: 12px;
     }
 
+    /* ---- NAVIGATION GROUPEE ---- */
+    .nav-group {
+        margin-bottom: 8px;
+    }
+    .nav-group-title {
+        font-size: 0.7em;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-muted);
+        padding: 16px 20px 6px;
+        opacity: 0.7;
+    }
+
+    /* ---- QUIZ SCORE ---- */
+    .quiz-score-bar {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: var(--bg2);
+        border-radius: 12px;
+        padding: 16px 20px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+    }
+    .quiz-score-label {
+        font-size: 0.95em;
+        font-weight: 600;
+        color: var(--text);
+    }
+    .quiz-score-count {
+        display: flex;
+        gap: 12px;
+    }
+    .quiz-score-correct {
+        color: var(--green);
+        font-weight: 700;
+    }
+    .quiz-score-wrong {
+        color: var(--red);
+        font-weight: 700;
+    }
+    .quiz-reset-btn {
+        margin-left: auto;
+        background: var(--bg);
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 0.85em;
+        font-weight: 600;
+        color: var(--accent2);
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        transition: all 0.2s;
+    }
+    .quiz-reset-btn:hover {
+        background: var(--accent);
+        color: var(--bg);
+    }
+    .quiz-final-msg {
+        display: none;
+        background: var(--gradient);
+        color: #fff;
+        padding: 16px 24px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 24px;
+    }
+    .quiz-final-msg.show { display: block; }
+
+    /* ---- BACK TO TOP ---- */
+    .back-to-top {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        width: 48px;
+        height: 48px;
+        background: var(--gradient);
+        border: none;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 1.4em;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        z-index: 90;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .back-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ---- POPUP DEJA LU ---- */
+    [data-popup].read::after {
+        content: ' ✓';
+        color: var(--green);
+        opacity: 1;
+    }
+
+    /* ---- SKIP LINK (Accessibilité) ---- */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--accent);
+        color: var(--bg);
+        padding: 8px 16px;
+        z-index: 1000;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 0 0 8px 0;
+    }
+    .skip-link:focus {
+        top: 0;
+    }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 900px) {
         .sidenav { display: none; }
@@ -480,11 +524,25 @@
             display: flex !important;
         }
         section { padding: 48px 24px; }
-        .hero { padding: 48px 24px; }
+        .hero {
+            padding: 48px 24px;
+            min-height: 70vh;
+        }
         .hero h1 { font-size: 2.2em; }
         .two-cols, .vocab-grid, .checklist { grid-template-columns: 1fr; }
         .knots-grid { grid-template-columns: repeat(2, 1fr); }
         .steps-row { flex-direction: column; align-items: center; }
+        .back-to-top {
+            bottom: 80px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+        }
+        .quiz-reset-btn {
+            margin-left: 0;
+            width: 100%;
+            margin-top: 8px;
+        }
     }
 
     /* ---- NAV MOBILE ---- */
@@ -516,6 +574,19 @@
     .mobile-nav a.active {
         background: var(--accent);
         color: var(--bg);
+    }
+
+    /* ---- FOCUS STATES (Accessibilité) ---- */
+    a:focus-visible,
+    button:focus-visible,
+    .card:focus-visible,
+    .quiz-btn:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+    }
+    .sidenav a:focus-visible {
+        outline-offset: -2px;
+        background: var(--bg3);
     }
 
     /* ---- POPUP MODAL ---- */
@@ -621,23 +692,41 @@
 </head>
 <body>
 
+<!-- SKIP LINK (Accessibilité) -->
+<a href="#bateau" class="skip-link">Aller au contenu</a>
+
 <!-- NAV LATERALE -->
-<nav class="sidenav" id="sidenav">
+<nav class="sidenav" id="sidenav" aria-label="Navigation principale">
     <div class="sidenav-title">Armor Cup 2026</div>
     <a href="#accueil"><span class="nav-icon">&#9973;</span> Accueil</a>
-    <a href="#bateau"><span class="nav-icon">&#128207;</span> Le bateau</a>
-    <a href="#zones"><span class="nav-icon">&#128736;</span> Zones du bateau</a>
-    <a href="#allures"><span class="nav-icon">&#127788;</span> Amures et allures</a>
-    <a href="#postes"><span class="nav-icon">&#127919;</span> Les postes</a>
-    <a href="#regles"><span class="nav-icon">&#9888;</span> Règles d'or</a>
-    <a href="#vocabulaire"><span class="nav-icon">&#128172;</span> Vocabulaire</a>
-    <a href="#manoeuvres"><span class="nav-icon">&#128260;</span> Les manœuvres</a>
-    <a href="#depart"><span class="nav-icon">&#127937;</span> Le départ</a>
-    <a href="#noeuds"><span class="nav-icon">&#10060;</span> Les nœuds</a>
-    <a href="#quiz"><span class="nav-icon">&#10067;</span> Quiz</a>
-    <a href="#securite"><span class="nav-icon">&#129509;</span> Sécurité</a>
-    <a href="#checklist"><span class="nav-icon">&#9989;</span> Jour J</a>
-    <a href="#esprit"><span class="nav-icon">&#128170;</span> État d'esprit</a>
+
+    <div class="nav-group">
+        <div class="nav-group-title">Apprendre</div>
+        <a href="#bateau"><span class="nav-icon">&#128207;</span> Le bateau</a>
+        <a href="#zones"><span class="nav-icon">&#128736;</span> Zones</a>
+        <a href="#allures"><span class="nav-icon">&#127788;</span> Amures et allures</a>
+        <a href="#postes"><span class="nav-icon">&#127919;</span> Les postes</a>
+        <a href="#regles"><span class="nav-icon">&#9888;</span> Règles d'or</a>
+        <a href="#vocabulaire"><span class="nav-icon">&#128172;</span> Vocabulaire</a>
+        <a href="#noeuds"><span class="nav-icon">&#10060;</span> Les nœuds</a>
+    </div>
+
+    <div class="nav-group">
+        <div class="nav-group-title">Pratiquer</div>
+        <a href="#manoeuvres"><span class="nav-icon">&#128260;</span> Manœuvres</a>
+        <a href="#depart"><span class="nav-icon">&#127937;</span> Le départ</a>
+        <a href="#course"><span class="nav-icon">&#127942;</span> Règles de course</a>
+        <a href="#quiz"><span class="nav-icon">&#10067;</span> Quiz</a>
+    </div>
+
+    <div class="nav-group">
+        <div class="nav-group-title">Jour J</div>
+        <a href="#securite"><span class="nav-icon">&#129509;</span> Sécurité</a>
+        <a href="#mob"><span class="nav-icon">&#128680;</span> Homme à la mer</a>
+        <a href="#checklist"><span class="nav-icon">&#9989;</span> Checklist</a>
+        <a href="#esprit"><span class="nav-icon">&#128170;</span> État d'esprit</a>
+    </div>
+
     <div class="progress-fill">
         <div class="progress-label">Progression</div>
         <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
@@ -650,20 +739,23 @@
     <a href="#allures">Allures</a>
     <a href="#postes">Postes</a>
     <a href="#regles">Règles</a>
-    <a href="#vocabulaire">Vocab</a>
+    <a href="#course">Course</a>
     <a href="#manoeuvres">Manœuvres</a>
     <a href="#quiz">Quiz</a>
-    <a href="#securite">Sécurité</a>
+    <a href="#mob">MOB</a>
     <a href="#checklist">Jour J</a>
 </div>
 
 <!-- MODAL POPUP -->
-<div class="modal-overlay" id="modalOverlay">
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
     <div class="modal" id="modalContent">
-        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <button class="modal-close" onclick="closeModal()" aria-label="Fermer">&times;</button>
         <div id="modalBody"></div>
     </div>
 </div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">&#9650;</button>
 
 <div class="main">
 
@@ -920,7 +1012,7 @@
             </div>
             <div class="card" data-popup="poste-homme-pont">
                 <div class="card-icon">&#129495;</div>
-                <div class="card-title">Homme de pont</div>
+                <div class="card-title">Homme de pont (N°1)</div>
                 <div class="card-desc">Tangon, préparation du spi, manœuvres à l'avant du bateau.</div>
                 <div class="card-profile">T'es agile et t'as pas le vertige ?</div>
             </div>
@@ -938,7 +1030,7 @@
             </div>
             <div class="rule">
                 <div class="rule-number">2</div>
-                <div class="rule-text"><strong>Une seule voix pour les ordres.</strong><br>Le skipper commande. Les autres confirment : "Paré !"</div>
+                <div class="rule-text"><strong>Une seule voix pour les ordres.</strong><br>Le skipper commande. Les autres confirment : "Pare !"</div>
             </div>
             <div class="rule">
                 <div class="rule-number">3</div>
@@ -995,517 +1087,6 @@
         </div>
     </section>
 
-    <!-- LES MANOEUVRES DETAILLEES -->
-    <section id="manoeuvres">
-        <h2>Les manœuvres en détail</h2>
-        <p class="section-subtitle">Virement de bord, empannage, montée et descente de spi</p>
-
-        <!-- VIREMENT DE BORD -->
-        <div class="manoeuvre-box">
-            <h3>&#128260; Le virement de bord</h3>
-            <p style="margin-bottom:16px;color:var(--text-muted);">
-                Changement de bord <strong>par l'avant</strong> (face au vent). C'est la manœuvre la plus fréquente en régate au près.
-            </p>
-
-            <div class="manoeuvre-steps">
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">1</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Annonce</div>
-                        <div class="manoeuvre-step-desc">Le skipper annonce clairement : <strong>"Paré à virer ?"</strong></div>
-                        <div class="manoeuvre-step-role">Skipper</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">2</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Préparation</div>
-                        <div class="manoeuvre-step-desc">
-                            Chaque équipier vérifie son poste :<br>
-                            • Régleur sortant : main sur l'écoute de foc, prêt à choquer<br>
-                            • Régleur entrant : écoute de foc en main, prête à border<br>
-                            • Pianiste : vérifie que rien ne coince au pied de mât<br>
-                            • Équipage : regarde où il va se déplacer
-                        </div>
-                        <div class="manoeuvre-step-role">Tout l'équipage</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">3</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Confirmation</div>
-                        <div class="manoeuvre-step-desc">Chacun répond <strong>"Paré !"</strong> quand il est prêt. Le skipper attend que tout le monde ait confirmé.</div>
-                        <div class="manoeuvre-step-role">Tout l'équipage</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">4</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Exécution</div>
-                        <div class="manoeuvre-step-desc">
-                            Le skipper annonce <strong>"On vire !"</strong> et pousse la barre <strong>doucement</strong> vers le vent.<br>
-                            Le bateau commence à tourner face au vent.
-                        </div>
-                        <div class="manoeuvre-step-role">Skipper</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">5</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Passage de l'axe</div>
-                        <div class="manoeuvre-step-desc">
-                            Quand le foc commence à faseyé (battre) :<br>
-                            • Le régleur sortant <strong>choque complètement</strong> l'écoute de foc<br>
-                            • Le bateau passe face au vent (voiles qui battent)<br>
-                            • La grand-voile passe de l'autre côté toute seule
-                        </div>
-                        <div class="manoeuvre-step-role">Régleur sortant</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">6</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Bordage du foc</div>
-                        <div class="manoeuvre-step-desc">
-                            Dès que le bateau a passé l'axe du vent :<br>
-                            • Le régleur entrant <strong>borde rapidement</strong> l'écoute de foc au winch<br>
-                            • 3 tours minimum sur le winch avant de border<br>
-                            • Border jusqu'à ce que le foc soit bien gonflé
-                        </div>
-                        <div class="manoeuvre-step-role">Régleur entrant</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">7</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Déplacement de l'équipage</div>
-                        <div class="manoeuvre-step-desc">
-                            Tout l'équipage traverse le bateau pour se placer <strong>au vent</strong> (côté haut).<br>
-                            Se déplacer <strong>bas</strong> (accroupi ou assis) et <strong>face à l'avant</strong>.
-                        </div>
-                        <div class="manoeuvre-step-role">Tout l'équipage</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">8</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Réglages fins</div>
-                        <div class="manoeuvre-step-desc">
-                            • Le barreur remet le bateau à plat (barre au milieu)<br>
-                            • Le régleur de GV ajuste l'écoute et le chariot<br>
-                            • Le régleur de foc affine le réglage selon les penons<br>
-                            • On reprend de la vitesse
-                        </div>
-                        <div class="manoeuvre-step-role">Barreur + Régleurs</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="manoeuvre-tip">
-                <strong>💡 Astuce :</strong> Un bon virement est <strong>fluide et lent</strong>. Si le barreur pousse la barre trop vite, le bateau perd toute sa vitesse. L'objectif : garder le maximum de vitesse en sortie de virement.
-            </div>
-
-            <div class="manoeuvre-warning">
-                <strong>⚠️ Erreurs fréquentes :</strong><br>
-                • Choquer le foc trop tôt (avant le passage de l'axe) → le bateau ralentit<br>
-                • Border trop tard → le foc reste en drapeau, perte de vitesse<br>
-                • Pousser la barre trop fort → le bateau s'arrête<br>
-                • Oublier de mettre 3 tours au winch → l'écoute file et brûle les mains
-            </div>
-        </div>
-
-        <!-- EMPANNAGE -->
-        <div class="manoeuvre-box">
-            <h3>&#128260; L'empannage</h3>
-            <p style="margin-bottom:16px;color:var(--text-muted);">
-                Changement de bord <strong>par l'arrière</strong> (vent arrière). Plus technique et potentiellement dangereux que le virement.
-            </p>
-
-            <div class="manoeuvre-steps">
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">1</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Annonce</div>
-                        <div class="manoeuvre-step-desc">Le skipper annonce : <strong>"Paré à empanner ?"</strong></div>
-                        <div class="manoeuvre-step-role">Skipper</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">2</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Préparation</div>
-                        <div class="manoeuvre-step-desc">
-                            • Régleur de GV : main sur l'écoute, prêt à border puis re-choquer<br>
-                            • Équipage : se prépare à baisser la tête (passage de la bôme)<br>
-                            • Vérifier qu'il n'y a personne dans la zone de passage de la bôme
-                        </div>
-                        <div class="manoeuvre-step-role">Tout l'équipage</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">3</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Confirmation</div>
-                        <div class="manoeuvre-step-desc">Chacun répond <strong>"Paré !"</strong></div>
-                        <div class="manoeuvre-step-role">Tout l'équipage</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">4</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Bordage de la GV</div>
-                        <div class="manoeuvre-step-desc">
-                            <strong>AVANT</strong> de tourner, le régleur de GV <strong>borde l'écoute</strong> pour ramener la bôme vers l'axe du bateau.<br>
-                            Cela évite que la bôme passe violemment.
-                        </div>
-                        <div class="manoeuvre-step-role">Régleur GV</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">5</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Exécution</div>
-                        <div class="manoeuvre-step-desc">
-                            Le skipper annonce <strong>"Empanne !"</strong> et tire la barre <strong>doucement</strong> pour faire tourner le bateau.<br>
-                            Le bateau tourne par l'arrière (le vent passe derrière).
-                        </div>
-                        <div class="manoeuvre-step-role">Skipper</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">6</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Passage de la bôme</div>
-                        <div class="manoeuvre-step-desc">
-                            La bôme passe de l'autre côté du bateau.<br>
-                            <strong>Tout le monde baisse la tête !</strong><br>
-                            La grand-voile change de côté.
-                        </div>
-                        <div class="manoeuvre-step-role">Tout l'équipage</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">7</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Choquage de la GV</div>
-                        <div class="manoeuvre-step-desc">
-                            Dès que la bôme est passée, le régleur de GV <strong>choque l'écoute</strong> pour remettre la voile dans sa position de portant.
-                        </div>
-                        <div class="manoeuvre-step-role">Régleur GV</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">8</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Stabilisation</div>
-                        <div class="manoeuvre-step-desc">
-                            • Le barreur remet la barre au milieu<br>
-                            • L'équipage se replace<br>
-                            • On reprend le cap et la vitesse
-                        </div>
-                        <div class="manoeuvre-step-role">Barreur + Équipage</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="manoeuvre-warning">
-                <strong>⚠️ DANGER :</strong> La bôme peut passer <strong>très violemment</strong> si on ne borde pas la GV avant l'empannage. Elle peut frapper quelqu'un ou casser du matériel. <strong>Toujours baisser la tête</strong> au passage de la bôme.
-            </div>
-
-            <div class="manoeuvre-tip">
-                <strong>💡 Astuce :</strong> Un empannage réussi est <strong>lent et contrôlé</strong>. On borde la GV, on tourne doucement, la bôme passe sans violence, on re-choque. Si c'est brutal, c'est qu'on a raté quelque chose.
-            </div>
-        </div>
-
-        <!-- MONTEE DE SPI -->
-        <div class="manoeuvre-box">
-            <h3>&#127754; Montée de spinnaker</h3>
-            <p style="margin-bottom:16px;color:var(--text-muted);">
-                Envoi du spinnaker au portant (vent arrière ou grand largue). Manœuvre spectaculaire qui demande coordination et rapidité.
-            </p>
-
-            <div class="manoeuvre-steps">
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">1</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Préparation au mouillage ou avant le départ</div>
-                        <div class="manoeuvre-step-desc">
-                            • Le spi est rangé dans son sac (chaussette) sous le pont<br>
-                            • Les 3 points sont identifiés : point de drisse (tête), point d'écoute, point d'amure<br>
-                            • La drisse, le bras et l'écoute sont lovés et prêts
-                        </div>
-                        <div class="manoeuvre-step-role">Pianiste + Homme de pont</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">2</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Annonce</div>
-                        <div class="manoeuvre-step-desc">
-                            Le skipper annonce : <strong>"On prépare le spi !"</strong><br>
-                            Il faut être sur une allure portante (largue, grand largue ou vent arrière).
-                        </div>
-                        <div class="manoeuvre-step-role">Skipper</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">3</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Sortie du spi</div>
-                        <div class="manoeuvre-step-desc">
-                            • L'homme de pont sort le sac du spi sur le pont, <strong>sous le vent</strong> (côté opposé au vent)<br>
-                            • Il fixe les 3 points : drisse en tête de mât, bras au tangon, écoute libre<br>
-                            • Il vérifie que le spi n'est pas vrillé
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">4</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Mise en place du tangon</div>
-                        <div class="manoeuvre-step-desc">
-                            • L'homme de pont fixe le tangon au mât (côté au vent)<br>
-                            • Il accroche le bras du spi au bout du tangon<br>
-                            • Le tangon est relevé à l'horizontale avec le balancine<br>
-                            • Le tangon est perpendiculaire au bateau
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">5</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Confirmation</div>
-                        <div class="manoeuvre-step-desc">
-                            L'homme de pont annonce : <strong>"Spi paré !"</strong><br>
-                            Le pianiste et les régleurs confirment qu'ils sont prêts.
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">6</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Hissage</div>
-                        <div class="manoeuvre-step-desc">
-                            Le skipper annonce : <strong>"Hisse le spi !"</strong><br>
-                            • Le pianiste hisse la drisse <strong>rapidement</strong> au winch<br>
-                            • Le spi monte et commence à se gonfler<br>
-                            • Hisser jusqu'en haut (le point de drisse doit toucher la poulie de tête de mât)
-                        </div>
-                        <div class="manoeuvre-step-role">Pianiste</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">7</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Réglages</div>
-                        <div class="manoeuvre-step-desc">
-                            • Le régleur de bras (au vent) règle le tangon : perpendiculaire au vent<br>
-                            • Le régleur d'écoute (sous le vent) borde ou choque pour gonfler le spi<br>
-                            • Le spi doit être bien gonflé, sans pli<br>
-                            • Le barreur ajuste le cap pour optimiser le spi
-                        </div>
-                        <div class="manoeuvre-step-role">Régleurs spi + Barreur</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">8</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Affalement du foc (optionnel)</div>
-                        <div class="manoeuvre-step-desc">
-                            Une fois le spi bien établi, on peut affaler le foc pour réduire la traînée.<br>
-                            Le pianiste affale la drisse de foc, un équipier le range.
-                        </div>
-                        <div class="manoeuvre-step-role">Pianiste + Équipier</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="manoeuvre-tip">
-                <strong>💡 Astuce :</strong> Le spi doit être hissé <strong>vite</strong> pour qu'il se gonfle d'un coup. Si on hisse trop lentement, il risque de s'enrouler autour de l'étai (chaussette). Coordination pianiste/homme de pont = clé du succès.
-            </div>
-
-            <div class="manoeuvre-warning">
-                <strong>⚠️ Attention :</strong><br>
-                • Vérifier que le spi n'est pas vrillé avant de hisser<br>
-                • Ne jamais hisser le spi face au vent (il se gonflerait n'importe comment)<br>
-                • Le tangon peut frapper : zone dangereuse à l'avant
-            </div>
-        </div>
-
-        <!-- DESCENTE DE SPI -->
-        <div class="manoeuvre-box">
-            <h3>&#11015; Descente de spinnaker</h3>
-            <p style="margin-bottom:16px;color:var(--text-muted);">
-                Affalement du spinnaker pour repasser au près ou au travers. Manœuvre délicate qui doit être rapide et propre.
-            </p>
-
-            <div class="manoeuvre-steps">
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">1</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Annonce</div>
-                        <div class="manoeuvre-step-desc">
-                            Le skipper annonce : <strong>"On prépare la descente de spi !"</strong><br>
-                            Il faut être sur une allure portante stable.
-                        </div>
-                        <div class="manoeuvre-step-role">Skipper</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">2</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Hissage du foc (si affalé)</div>
-                        <div class="manoeuvre-step-desc">
-                            Si le foc a été affalé, le pianiste le hisse à nouveau.<br>
-                            On navigue temporairement avec foc + spi.
-                        </div>
-                        <div class="manoeuvre-step-role">Pianiste</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">3</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Préparation</div>
-                        <div class="manoeuvre-step-desc">
-                            • L'homme de pont se place à l'avant, <strong>sous le vent</strong><br>
-                            • Il prépare ses mains pour récupérer le spi<br>
-                            • Le pianiste se prépare à affaler la drisse<br>
-                            • Le régleur de bras se prépare à larguer
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont + Pianiste + Régleur</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">4</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Confirmation</div>
-                        <div class="manoeuvre-step-desc">
-                            L'homme de pont annonce : <strong>"Paré à affaler !"</strong>
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">5</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Largage du bras</div>
-                        <div class="manoeuvre-step-desc">
-                            Le skipper annonce : <strong>"Largue le bras !"</strong><br>
-                            Le régleur de bras <strong>largue complètement</strong> le bras du spi.<br>
-                            Le spi se dégonfle et passe sous le vent.
-                        </div>
-                        <div class="manoeuvre-step-role">Régleur de bras</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">6</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Récupération du spi</div>
-                        <div class="manoeuvre-step-desc">
-                            • L'homme de pont <strong>tire le spi vers lui</strong> par le brin libre (point d'amure)<br>
-                            • Il le ramène à bord en le tirant dans le bateau<br>
-                            • Il faut aller vite pour éviter que le spi tombe à l'eau
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">7</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Affalement de la drisse</div>
-                        <div class="manoeuvre-step-desc">
-                            Dès que l'homme de pont a commencé à récupérer le spi, le pianiste <strong>affale la drisse</strong> rapidement.<br>
-                            Le spi descend et l'homme de pont continue à le tirer à bord.
-                        </div>
-                        <div class="manoeuvre-step-role">Pianiste</div>
-                    </div>
-                </div>
-
-                <div class="manoeuvre-step">
-                    <div class="manoeuvre-step-num">8</div>
-                    <div class="manoeuvre-step-content">
-                        <div class="manoeuvre-step-title">Rangement</div>
-                        <div class="manoeuvre-step-desc">
-                            • L'homme de pont range le spi dans son sac, sous le pont<br>
-                            • Le tangon est démonté et rangé<br>
-                            • Les bouts sont lovés<br>
-                            • On navigue au foc + GV
-                        </div>
-                        <div class="manoeuvre-step-role">Homme de pont + Pianiste</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="manoeuvre-warning">
-                <strong>⚠️ Erreurs fréquentes :</strong><br>
-                • Affaler la drisse avant de larguer le bras → le spi tombe à l'eau<br>
-                • Ne pas récupérer assez vite → le spi traîne dans l'eau et se remplit<br>
-                • Oublier de hisser le foc avant → on se retrouve sans voile d'avant
-            </div>
-
-            <div class="manoeuvre-tip">
-                <strong>💡 Astuce :</strong> La clé d'une bonne descente de spi = <strong>coordination homme de pont / pianiste</strong>. L'homme de pont doit tirer le spi vers lui AVANT que le pianiste affale. Sinon le spi tombe à l'eau et c'est la galère.
-            </div>
-        </div>
-
-    </section>
-
-    <!-- LE DEPART -->
-    <section id="depart">
-        <h2>Le départ de régate</h2>
-        <p class="section-subtitle">5 minutes qui comptent</p>
-        <div class="two-cols">
-            <div class="col">
-                <h3>La séquence</h3>
-                <ul>
-                    <li><strong>T-5 min</strong> : signal d'avertissement</li>
-                    <li><strong>T-4 min</strong> : signal préparatoire</li>
-                    <li><strong>T-1 min</strong> : préparatoire affalé</li>
-                    <li><strong>T-0</strong> : DEPART !</li>
-                </ul>
-            </div>
-            <div class="col">
-                <h3>Notre stratégie</h3>
-                <ul>
-                    <li>Départ 2e rideau, propre, avec de la vitesse</li>
-                    <li>Garder de l'eau libre sous le vent</li>
-                    <li>Ne PAS chercher le premier rang</li>
-                    <li>Un départ propre > un départ agressif</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
     <!-- LES NOEUDS -->
     <section id="noeuds">
         <h2>Les 4 nœuds essentiels</h2>
@@ -1534,13 +1115,165 @@
         </div>
     </section>
 
+    <!-- MANOEUVRES -->
+    <section id="manoeuvres">
+        <h2>Les manœuvres essentielles</h2>
+        <p class="section-subtitle">Cliquez sur chaque manœuvre pour voir le détail étape par étape</p>
+        <div class="cards">
+            <div class="card" data-popup="manoeuvre-virement">
+                <div class="card-icon">&#128260;</div>
+                <div class="card-title">Virement de bord</div>
+                <div class="card-desc">Changement de bord par l'avant (au près).</div>
+                <div class="card-profile">La plus fréquente</div>
+            </div>
+            <div class="card" data-popup="manoeuvre-empannage">
+                <div class="card-icon">&#9888;</div>
+                <div class="card-title">Empannage</div>
+                <div class="card-desc">Changement de bord par l'arrière (au portant).</div>
+                <div class="card-profile">Attention à la bôme !</div>
+            </div>
+            <div class="card" data-popup="manoeuvre-empannage-spi">
+                <div class="card-icon">&#128293;</div>
+                <div class="card-title">Empannage sous spi</div>
+                <div class="card-desc">Changer de bord avec le spinnaker déployé.</div>
+                <div class="card-profile">Manœuvre expert</div>
+            </div>
+            <div class="card" data-popup="manoeuvre-envoi-spi">
+                <div class="card-icon">&#127754;</div>
+                <div class="card-title">Envoi du spi</div>
+                <div class="card-desc">Hisser le spinnaker au portant.</div>
+                <div class="card-profile">Coordination clé</div>
+            </div>
+            <div class="card" data-popup="manoeuvre-affalage-spi">
+                <div class="card-icon">&#128071;</div>
+                <div class="card-title">Affalage du spi</div>
+                <div class="card-desc">Descendre le spinnaker proprement.</div>
+                <div class="card-profile">Casser avant d'affaler</div>
+            </div>
+            <div class="card" data-popup="manoeuvre-hissage-voiles">
+                <div class="card-icon">&#11014;</div>
+                <div class="card-title">Hissage des voiles</div>
+                <div class="card-desc">Séquence départ : GV puis foc.</div>
+                <div class="card-profile">Face au vent</div>
+            </div>
+            <div class="card" data-popup="manoeuvre-affalage-voiles">
+                <div class="card-icon">&#11015;</div>
+                <div class="card-title">Affalage des voiles</div>
+                <div class="card-desc">Descendre les voiles à l'arrivée.</div>
+                <div class="card-profile">Tout ranger proprement</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE DEPART -->
+    <section id="depart">
+        <h2>Le départ de régate</h2>
+        <p class="section-subtitle">5 minutes qui comptent</p>
+        <div class="two-cols">
+            <div class="col">
+                <h3>La séquence</h3>
+                <ul>
+                    <li><strong>T-5 min</strong> : signal d'avertissement</li>
+                    <li><strong>T-4 min</strong> : signal préparatoire</li>
+                    <li><strong>T-1 min</strong> : préparatoire affalé</li>
+                    <li><strong>T-0</strong> : DEPART !</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Notre stratégie</h3>
+                <ul>
+                    <li>Départ 2e rideau, propre, avec de la vitesse</li>
+                    <li>Garder de l'eau libre sous le vent</li>
+                    <li>Ne PAS chercher le premier rang</li>
+                    <li>Un départ propre > un départ agressif</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGLES DE COURSE -->
+    <section id="course">
+        <h2>Règles de course</h2>
+        <p class="section-subtitle">Éviter les protestations et les pénalités</p>
+
+        <h3>Les 5 règles essentielles</h3>
+        <div class="cards" style="margin-bottom:32px;">
+            <div class="card" data-popup="regle-tribord">
+                <div class="card-icon">&#9654;</div>
+                <div class="card-title">Règle 10 : Tribord/Bâbord</div>
+                <div class="card-desc">Un bateau bâbord amure doit s'écarter d'un bateau tribord amure.</div>
+                <div class="card-profile">LA règle fondamentale</div>
+            </div>
+            <div class="card" data-popup="regle-engagement">
+                <div class="card-icon">&#128279;</div>
+                <div class="card-title">Règle 11 : Engagement</div>
+                <div class="card-desc">Même amure : le bateau au vent doit s'écarter du bateau sous le vent.</div>
+                <div class="card-profile">Croisement même bord</div>
+            </div>
+            <div class="card" data-popup="regle-rattrapage">
+                <div class="card-icon">&#128674;</div>
+                <div class="card-title">Règle 12 : Rattrapage</div>
+                <div class="card-desc">Le bateau rattrapant doit s'écarter du bateau rattrapé.</div>
+                <div class="card-profile">Celui de derrière s'écarte</div>
+            </div>
+            <div class="card" data-popup="regle-bouee">
+                <div class="card-icon">&#128992;</div>
+                <div class="card-title">Règle 18 : Zone de bouée</div>
+                <div class="card-desc">À 3 longueurs de la bouée, le bateau intérieur a la place.</div>
+                <div class="card-profile">Zone à 3 longueurs</div>
+            </div>
+            <div class="card" data-popup="regle-penalite">
+                <div class="card-icon">&#128260;</div>
+                <div class="card-title">Pénalité : Tour à 720°</div>
+                <div class="card-desc">Si vous touchez un bateau ou enfreignez une règle, effectuez 2 tours complets.</div>
+                <div class="card-profile">S'exonérer soi-même</div>
+            </div>
+        </div>
+
+        <h3>Départ : OCS et rappels</h3>
+        <div class="two-cols">
+            <div class="col">
+                <h3 style="color:var(--orange);">OCS (On Course Side)</h3>
+                <ul>
+                    <li><strong>OCS</strong> = vous avez franchi la ligne avant le signal de départ</li>
+                    <li>Le comité signale par un coup de corne + pavillon X</li>
+                    <li>Vous devez revenir DERRIÈRE la ligne et la refranchir</li>
+                    <li>Si vous ne revenez pas → disqualifié (DSQ)</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3 style="color:var(--orange);">Notre stratégie</h3>
+                <ul>
+                    <li>Départ 2e rideau = moins de risque d'OCS</li>
+                    <li>Rester en mouvement : ne jamais s'arrêter sur la ligne</li>
+                    <li>Écouter les coups de corne (1 = avertissement, 1 = départ)</li>
+                    <li>Si doute → mieux vaut repasser la ligne que risquer DSQ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <!-- QUIZ -->
     <section id="quiz">
-        <h2>Quiz</h2>
-        <p class="section-subtitle">Teste tes connaissances !</p>
+        <h2>Quiz (12 questions)</h2>
+        <p class="section-subtitle">Teste tes connaissances avant le jour J !</p>
+
+        <div class="quiz-score-bar" id="quizScoreBar">
+            <div class="quiz-score-label">Score :</div>
+            <div class="quiz-score-count">
+                <span class="quiz-score-correct">✓ <span id="quizCorrect">0</span></span>
+                <span class="quiz-score-wrong">✗ <span id="quizWrong">0</span></span>
+                <span style="color:var(--text-muted);">/ 12</span>
+            </div>
+            <button class="quiz-reset-btn" onclick="resetQuiz()">Recommencer</button>
+        </div>
+
+        <div class="quiz-final-msg" id="quizFinalMsg"></div>
+
+        <h3>Priorités et règles</h3>
 
         <div class="quiz-block">
-            <div class="quiz-question">Un bateau arrive sur tribord, tu es sur babord. Que fais-tu ?</div>
+            <div class="quiz-question">1. Un bateau arrive sur tribord, tu es sur bâbord. Que fais-tu ?</div>
             <div class="quiz-options">
                 <button class="quiz-btn" onclick="checkAnswer(this, false)">Je crie plus fort que lui pour l'intimider</button>
                 <button class="quiz-btn" onclick="checkAnswer(this, true)">Je m'écarte, il est prioritaire</button>
@@ -1550,7 +1283,39 @@
         </div>
 
         <div class="quiz-block">
-            <div class="quiz-question">Le skipper dit "Paré à virer ?". Que réponds-tu ?</div>
+            <div class="quiz-question">2. Deux bateaux sur la même amure (même côté du vent). Qui est prioritaire ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Le bateau au vent (côté haut)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Le bateau sous le vent (côté bas)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Le plus gros bateau</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-block">
+            <div class="quiz-question">3. Tu touches un autre bateau pendant la course. Que dois-tu faire ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Rien, c'est lui qui avait tort</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Abandonner la course immédiatement</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Effectuer un tour de pénalité à 720° (2 tours complets)</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-block">
+            <div class="quiz-question">4. Tu franchis la ligne de départ AVANT le signal. C'est un OCS. Que fais-tu ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Je reviens derrière la ligne et je la refranchis</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Je continue, personne n'a vu</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">J'accélère pour prendre de l'avance</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <h3 style="margin-top:32px;">Vocabulaire et ordres</h3>
+
+        <div class="quiz-block">
+            <div class="quiz-question">5. Le skipper dit "Paré à virer ?". Que réponds-tu ?</div>
             <div class="quiz-options">
                 <button class="quiz-btn" onclick="checkAnswer(this, false)">Pourquoi ?</button>
                 <button class="quiz-btn" onclick="checkAnswer(this, false)">Attends, je finis mon sandwich</button>
@@ -1560,31 +1325,75 @@
         </div>
 
         <div class="quiz-block">
-            <div class="quiz-question">Que signifie "Choque !" ?</div>
+            <div class="quiz-question">6. Que signifie "Choque !" ?</div>
             <div class="quiz-options">
                 <button class="quiz-btn" onclick="checkAnswer(this, false)">Y'a un problème !</button>
-                <button class="quiz-btn" onclick="checkAnswer(this, true)">Relâche l'écoute (la corde)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Relâche l'écoute (laisse filer la corde)</button>
                 <button class="quiz-btn" onclick="checkAnswer(this, false)">Tire sur l'écoute</button>
             </div>
             <div class="quiz-feedback"></div>
         </div>
 
         <div class="quiz-block">
-            <div class="quiz-question">Lors d'un empannage, que fait-on AVANT de tourner ?</div>
+            <div class="quiz-question">7. Quelle est la différence entre un virement et un empannage ?</div>
             <div class="quiz-options">
-                <button class="quiz-btn" onclick="checkAnswer(this, false)">On choque la grand-voile</button>
-                <button class="quiz-btn" onclick="checkAnswer(this, true)">On borde la grand-voile</button>
-                <button class="quiz-btn" onclick="checkAnswer(this, false)">On affale le foc</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Virement = on passe face au vent. Empannage = on passe vent arrière</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">C'est la même chose, deux mots différents</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Virement = avec spi. Empannage = sans spi</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <h3 style="margin-top:32px;">Allures et navigation</h3>
+
+        <div class="quiz-block">
+            <div class="quiz-question">8. À quelle allure navigue-t-on le plus vite ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Au près (face au vent)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Au largue (~120° du vent)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Vent arrière (180°)</button>
             </div>
             <div class="quiz-feedback"></div>
         </div>
 
         <div class="quiz-block">
-            <div class="quiz-question">Pour affaler le spi, quelle est la première action ?</div>
+            <div class="quiz-question">9. Pourquoi ne peut-on pas naviguer directement face au vent ?</div>
             <div class="quiz-options">
-                <button class="quiz-btn" onclick="checkAnswer(this, false)">Affaler la drisse</button>
-                <button class="quiz-btn" onclick="checkAnswer(this, true)">Larguer le bras</button>
-                <button class="quiz-btn" onclick="checkAnswer(this, false)">Choquer l'écoute</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">C'est interdit par le règlement</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Le mât risque de casser</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Les voiles ne peuvent pas se gonfler, le bateau n'avance plus</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-block">
+            <div class="quiz-question">10. Quand envoie-t-on le spinnaker ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Au près, pour remonter au vent</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Au portant (largue, grand largue, vent arrière)</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Quand il pleut, pour se protéger</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <h3 style="margin-top:32px;">Sécurité</h3>
+
+        <div class="quiz-block">
+            <div class="quiz-question">11. Quelqu'un tombe à l'eau. Quelle est la PREMIÈRE chose à faire ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Sauter à l'eau pour l'aider</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Appeler les secours immédiatement</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">Crier "Homme à la mer !" et désigner un guetteur qui ne le lâche pas des yeux</button>
+            </div>
+            <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz-block">
+            <div class="quiz-question">12. Lors d'un empannage, quel est le danger principal ?</div>
+            <div class="quiz-options">
+                <button class="quiz-btn" onclick="checkAnswer(this, true)">La bôme qui passe violemment d'un côté à l'autre</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Le mât qui peut tomber</button>
+                <button class="quiz-btn" onclick="checkAnswer(this, false)">Le bateau qui chavire systématiquement</button>
             </div>
             <div class="quiz-feedback"></div>
         </div>
@@ -1600,9 +1409,81 @@
             <div class="check-item"><div class="check-icon">&#9888;&#65039;</div> Attention aux winchs : doigts et bouts</div>
             <div class="check-item"><div class="check-icon">&#128064;</div> Zone du tangon : risque de choc</div>
             <div class="check-item"><div class="check-icon">&#128225;</div> VHF sur le canal course</div>
-            <div class="check-item"><div class="check-icon">&#128166;</div> Procédure homme à la mer : on désigne un guetteur</div>
             <div class="check-item"><div class="check-icon">&#127774;</div> Crème solaire + eau en quantité</div>
             <div class="check-item"><div class="check-icon">&#128094;</div> Chaussures grip, pas de coton, couches</div>
+        </div>
+    </section>
+
+    <!-- HOMME A LA MER -->
+    <section id="mob">
+        <h2>Homme à la mer (MOB)</h2>
+        <p class="section-subtitle">LA procédure à connaître par cœur — on espère ne jamais l'utiliser</p>
+
+        <div class="rule" style="margin-bottom:24px;border-left-color:var(--red);">
+            <div class="rule-number" style="color:var(--red);">&#128680;</div>
+            <div class="rule-text"><strong>Règle absolue : ne JAMAIS perdre de vue la personne à l'eau.</strong><br>Dès qu'on crie "Homme à la mer !", un guetteur est désigné et ne lâche plus la personne des yeux.</div>
+        </div>
+
+        <h3>La procédure en 7 étapes</h3>
+        <div class="steps-row" style="margin-bottom:24px;">
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">1</div>
+                <div class="step-text">"HOMME À LA MER !" — Crier fort, alerter tout l'équipage</div>
+                <div class="step-role">Celui qui voit</div>
+            </div>
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">2</div>
+                <div class="step-text">Désigner un GUETTEUR qui pointe du doigt la personne en permanence</div>
+                <div class="step-role">Skipper</div>
+            </div>
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">3</div>
+                <div class="step-text">Lancer la bouée couronne + tout ce qui flotte vers la personne</div>
+                <div class="step-role">Équipier le plus proche</div>
+            </div>
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">4</div>
+                <div class="step-text">Abattre immédiatement (s'écarter du vent) pour ralentir et revenir</div>
+                <div class="step-role">Barreur</div>
+            </div>
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">5</div>
+                <div class="step-text">Affaler le spi si déployé — on ne récupère pas quelqu'un sous spi</div>
+                <div class="step-role">Équipage</div>
+            </div>
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">6</div>
+                <div class="step-text">Approcher AU PRÈS, SOUS LE VENT de la personne (pour ne pas lui passer dessus)</div>
+                <div class="step-role">Barreur</div>
+            </div>
+            <div class="step" style="border-top-color:var(--red);">
+                <div class="step-num" style="color:var(--red);">7</div>
+                <div class="step-text">Récupérer par le côté sous le vent, à l'aide d'un bout ou de l'échelle</div>
+                <div class="step-role">Équipage</div>
+            </div>
+        </div>
+
+        <div class="two-cols">
+            <div class="col" style="border-left:3px solid var(--red);">
+                <h3 style="color:var(--red);">À faire</h3>
+                <ul>
+                    <li>Rester calme, parler fort et clair</li>
+                    <li>Le guetteur pointe SANS ARRÊT</li>
+                    <li>Approcher lentement, moteur au point mort près de la personne</li>
+                    <li>Rassurer la personne à l'eau</li>
+                    <li>Alerter le comité de course si nécessaire (VHF canal 16)</li>
+                </ul>
+            </div>
+            <div class="col" style="border-left:3px solid var(--text-muted);">
+                <h3>À NE PAS faire</h3>
+                <ul>
+                    <li>Sauter à l'eau pour "aider" (2 personnes à récupérer = pire)</li>
+                    <li>Passer AU VENT de la personne (risque de la heurter)</li>
+                    <li>Foncer vers la personne (risque de blessure avec la coque)</li>
+                    <li>Lâcher la personne des yeux ("je la retrouverai")</li>
+                    <li>Paniquer — la panique tue plus que l'eau froide</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -1938,15 +1819,18 @@ const popups = {
     `,
     'poste-homme-pont': `
         <div class="modal-icon">&#129495;</div>
-        <h3>Homme de pont</h3>
-        <p>L'acrobate du bord. Il travaille à l'avant du bateau pour les manœuvres de voiles d'avant et de spi.</p>
+        <h3>Homme de pont (Numéro 1)</h3>
+        <p>L'acrobate du bord. En régate, on l'appelle le <strong>"N°1"</strong> ou <strong>"numéro 1"</strong> car c'est le poste le plus à l'avant du bateau.</p>
+        <p>Il travaille à l'avant pour les manœuvres de voiles d'avant et de spinnaker.</p>
         <ul>
             <li>Préparer et envoyer le spi : fixer le tangon, envoyer la drisse</li>
             <li>Affaler le spi : le récupérer proprement sous le vent</li>
             <li>Gérer le tangon : le mettre en place, le régler, le ranger</li>
             <li>Changer de foc si nécessaire (rare en régate)</li>
+            <li>Communiquer avec le cockpit sur l'état des préparations</li>
         </ul>
-        <div class="tip">Toujours s'accrocher. Travailler à genoux plutôt que debout. Communiquer avec le cockpit : "C'est prêt à l'avant !"</div>
+        <div class="tip">Toujours s'accrocher. Travailler à genoux plutôt que debout. Communiquer avec le cockpit : "C'est prêt à l'avant !" ou "N°1 paré !"</div>
+        <div class="tip">Le N°1 est souvent le plus expérimenté à l'avant car c'est la zone la plus exposée : mouvement du bateau, risque de chute, coordination spi.</div>
     `,
 
     // NŒUDS
@@ -2083,6 +1967,191 @@ const popups = {
         </ul>
         <p>L'équipage se place généralement <strong>au vent</strong> pour contrebalancer la gîte. On se déplace <strong>sous le vent</strong> pour certaines manœuvres.</p>
         <div class="tip">Pour savoir d'où vient le vent : regarde les penons, les drapeaux, ou mouille ton doigt et lève-le !</div>
+    `,
+
+    // MANOEUVRES
+    'manoeuvre-virement': `
+        <div class="modal-icon">&#128260;</div>
+        <h3>Virement de bord</h3>
+        <p>Changement de bord par <strong>l'avant du bateau</strong>, en passant face au vent. C'est la manœuvre la plus fréquente en régate.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Skipper</strong> : "Paré à virer ?"</li>
+            <li><strong>2. Équipage</strong> : "Paré !"</li>
+            <li><strong>3. Skipper</strong> : "On vire !" — pousse la barre doucement</li>
+            <li><strong>4. Régleur sortant</strong> : choque le foc au passage de l'axe</li>
+            <li><strong>5. Régleur entrant</strong> : borde le foc de l'autre côté</li>
+            <li><strong>6. Équipage</strong> : traverse pour se mettre au vent</li>
+        </ul>
+        <div class="tip">Le virement doit être fluide, pas brusque. Si on pousse la barre trop fort, le bateau perd toute sa vitesse.</div>
+    `,
+    'manoeuvre-empannage': `
+        <div class="modal-icon">&#9888;</div>
+        <h3>Empannage</h3>
+        <p>Changement de bord par <strong>l'arrière du bateau</strong>, au portant. Plus délicat que le virement car la bôme peut passer violemment.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Skipper</strong> : "Paré à empanner ?" — vérifier que la bôme peut passer</li>
+            <li><strong>2. Équipage</strong> : "Paré !" — tout le monde baisse la tête</li>
+            <li><strong>3. Régleur GV</strong> : border la GV pour contrôler le passage de la bôme</li>
+            <li><strong>4. Skipper</strong> : "Empanne !" — tire la barre</li>
+            <li><strong>5. Équipage</strong> : la bôme passe, tout le monde se baisse !</li>
+            <li><strong>6. Régleur GV</strong> : choque la GV de l'autre côté, régler</li>
+        </ul>
+        <div class="tip">⚠️ Danger : la bôme peut passer violemment. Toujours baisser la tête et border avant l'empannage pour contrôler.</div>
+    `,
+    'manoeuvre-empannage-spi': `
+        <div class="modal-icon">&#128293;</div>
+        <h3>Empannage sous spinnaker</h3>
+        <p>La manœuvre la plus technique : changer de bord avec le <strong>spinnaker déployé</strong>. Coordination et timing essentiels.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Skipper</strong> : "Paré à empanner ?" — vérifier vitesse et vent stable</li>
+            <li><strong>2. Régleurs spi</strong> : préparer le nouveau bras (l'ancienne écoute devient bras)</li>
+            <li><strong>3. Régleur GV</strong> : border la GV progressivement vers le centre</li>
+            <li><strong>4. Skipper</strong> : "Empanne !" — tire la barre doucement</li>
+            <li><strong>5. Régleurs spi</strong> : la bôme passe. Inverser bras/écoute : choquer l'ancien bras, border la nouvelle écoute</li>
+            <li><strong>6. Homme de pont + Régleurs</strong> : basculer le tangon de l'autre côté, régler le spi</li>
+            <li><strong>7. Régleur GV</strong> : choquer la GV, stabiliser le nouveau bord</li>
+        </ul>
+        <div class="tip">🔥 Manœuvre expert : l'empannage sous spi demande synchronisation parfaite. Le spi doit rester gonflé pendant tout le passage. Entraînez-vous d'abord au portant par vent faible.</div>
+        <div class="tip">💡 Astuce : l'ancien bras devient la nouvelle écoute, l'ancienne écoute devient le nouveau bras. Régleurs spi : ne lâchez jamais complètement les bouts pendant la manœuvre !</div>
+    `,
+    'manoeuvre-envoi-spi': `
+        <div class="modal-icon">&#127754;</div>
+        <h3>Envoi du spinnaker</h3>
+        <p>Hisser le spinnaker au portant pour aller plus vite. Coordination clé entre avant et cockpit.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Homme de pont</strong> : mettre en place le tangon (à l'horizontale)</li>
+            <li><strong>2. Homme de pont</strong> : fixer le point d'amure du spi au tangon</li>
+            <li><strong>3. Pianiste + Régleur spi</strong> : préparer la drisse et l'écoute de spi</li>
+            <li><strong>4. Pianiste</strong> : "Hisse le spi !" — hisser rapidement à bloc</li>
+            <li><strong>5. Régleur spi</strong> : border l'écoute pour gonfler le spi</li>
+            <li><strong>6. Régleurs spi</strong> : régler le bras et l'écoute pour stabiliser</li>
+        </ul>
+        <div class="tip">💡 Astuce : hisser vite pour que le spi se gonfle d'un coup. S'il traîne à moitié hissé, il risque de s'emmêler.</div>
+    `,
+    'manoeuvre-affalage-spi': `
+        <div class="modal-icon">&#128071;</div>
+        <h3>Affalage du spinnaker</h3>
+        <p>Descendre le spinnaker proprement avant de remonter au près ou à l'approche d'une bouée.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Skipper</strong> : "Paré à affaler le spi ?"</li>
+            <li><strong>2. Homme de pont</strong> : se positionne à l'avant</li>
+            <li><strong>3. Régleur bras</strong> : larguer le bras pour casser le spi (le dégonfler)</li>
+            <li><strong>4. Homme de pont</strong> : récupérer le spi sous le vent par l'écoute</li>
+            <li><strong>5. Pianiste</strong> : affaler la drisse doucement</li>
+            <li><strong>6. Homme de pont + Pianiste</strong> : ranger le spi et le tangon</li>
+        </ul>
+        <div class="tip">⚠️ Point critique : bien casser le spi (larguer le bras) AVANT de commencer à affaler, sinon il reste gonflé et devient ingérable.</div>
+    `,
+    'manoeuvre-hissage-voiles': `
+        <div class="modal-icon">&#11014;</div>
+        <h3>Hissage des voiles (départ)</h3>
+        <p>Séquence du matin : préparer le bateau et hisser GV + foc dans le bon ordre.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Pianiste</strong> : vérifier que les drisses sont claires (pas emmêlées)</li>
+            <li><strong>2. Barreur</strong> : mettre le bateau face au vent (arrêté ou dérive lente)</li>
+            <li><strong>3. Pianiste + aide au winch</strong> : hisser la grand-voile à bloc, caler la drisse</li>
+            <li><strong>4. Pianiste</strong> : hisser le foc à bloc, caler la drisse</li>
+            <li><strong>5. Régleurs</strong> : border les écoutes, régler hale-bas et cunningham</li>
+            <li><strong>6. Barreur</strong> : reprendre de la vitesse, le bateau est prêt !</li>
+        </ul>
+        <div class="tip">💡 Ordre : toujours GV en premier (plus stable), puis foc. Toujours face au vent pour éviter que les voiles se gonflent pendant le hissage.</div>
+    `,
+    'manoeuvre-affalage-voiles': `
+        <div class="modal-icon">&#11015;</div>
+        <h3>Affalage des voiles (arrivée)</h3>
+        <p>Descendre les voiles proprement à la fin de la régate ou pour rentrer au port.</p>
+        <p><strong>Séquence :</strong></p>
+        <ul>
+            <li><strong>1. Barreur</strong> : mettre le bateau face au vent</li>
+            <li><strong>2. Régleur GV</strong> : choquer complètement l'écoute de GV</li>
+            <li><strong>3. Pianiste + équipier</strong> : affaler la GV, un équipier guide sur la bôme</li>
+            <li><strong>4. Pianiste + homme de pont</strong> : affaler le foc, le récupérer à l'avant</li>
+            <li><strong>5. Tout l'équipage</strong> : ranger les voiles proprement (pliage ou housse)</li>
+            <li><strong>6. Pianiste + Régleurs</strong> : lover les drisses et écoutes, tout doit être propre</li>
+        </ul>
+        <div class="tip">💡 Un bateau bien rangé = un départ serein le lendemain. Prenez le temps de tout lover correctement.</div>
+    `,
+
+    // RÈGLES DE COURSE
+    'regle-tribord': `
+        <div class="modal-icon">&#9654;</div>
+        <h3>Règle 10 : Tribord / Bâbord</h3>
+        <p>C'est LA règle fondamentale de la voile, celle que tout le monde doit connaître.</p>
+        <p><strong>Principe :</strong> Quand deux bateaux sont sur des amures opposées, le bateau <strong>bâbord amure</strong> (vent venant de gauche) doit s'écarter du bateau <strong>tribord amure</strong> (vent venant de droite).</p>
+        <ul>
+            <li><strong>Tribord amure</strong> = vent à droite = PRIORITAIRE</li>
+            <li><strong>Bâbord amure</strong> = vent à gauche = doit s'écarter</li>
+        </ul>
+        <p><strong>En pratique :</strong></p>
+        <ul>
+            <li>Si tu es tribord, crie "TRIBORD !" pour signaler ta priorité</li>
+            <li>Si tu es bâbord et qu'un bateau tribord arrive, tu DOIS manœuvrer pour l'éviter</li>
+            <li>Le bateau prioritaire doit maintenir son cap (ne pas changer de direction brusquement)</li>
+        </ul>
+        <div class="tip">Moyen mnémotechnique : Bâbord = Batterie = à gauche (comme dans un orchestre). Si le vent vient de la gauche, tu es bâbord et tu dois t'écarter.</div>
+    `,
+    'regle-engagement': `
+        <div class="modal-icon">&#128279;</div>
+        <h3>Règle 11 : Engagement (même amure)</h3>
+        <p>Quand deux bateaux sont sur la <strong>même amure</strong> (même côté du vent), c'est la règle de l'engagement qui s'applique.</p>
+        <p><strong>Principe :</strong> Le bateau <strong>au vent</strong> (côté plus haut) doit s'écarter du bateau <strong>sous le vent</strong> (côté plus bas).</p>
+        <ul>
+            <li><strong>Bateau sous le vent</strong> = PRIORITAIRE</li>
+            <li><strong>Bateau au vent</strong> = doit s'écarter</li>
+        </ul>
+        <p><strong>Pourquoi ?</strong> Le bateau sous le vent a moins de place pour manœuvrer (il ne peut pas lofer sans risquer de se retrouver face au vent).</p>
+        <div class="tip">En résumé : si tu navigues "au-dessus" d'un autre bateau (plus au vent), c'est à toi de t'écarter.</div>
+    `,
+    'regle-rattrapage': `
+        <div class="modal-icon">&#128674;</div>
+        <h3>Règle 12 : Rattrapage</h3>
+        <p>Quand un bateau en rattrape un autre par l'arrière.</p>
+        <p><strong>Principe :</strong> Le bateau <strong>rattrapant</strong> doit s'écarter du bateau <strong>rattrapé</strong>.</p>
+        <ul>
+            <li>Tu arrives par derrière = c'est à TOI de manœuvrer</li>
+            <li>Le bateau devant maintient son cap</li>
+            <li>Tu peux passer au vent ou sous le vent, mais c'est ton problème</li>
+        </ul>
+        <p><strong>Définition "rattrapage" :</strong> Tu es rattrapant si tu arrives depuis un secteur de plus de 90° derrière l'autre bateau (en gros, si tu ne vois pas son cockpit).</p>
+        <div class="tip">Le bateau de devant n'a pas à se préoccuper de toi. C'est à toi de trouver un passage sans le gêner.</div>
+    `,
+    'regle-bouee': `
+        <div class="modal-icon">&#128992;</div>
+        <h3>Règle 18 : Zone de bouée</h3>
+        <p>Les règles changent quand on approche d'une bouée à virer. C'est souvent là que les collisions arrivent.</p>
+        <p><strong>Principe :</strong> À <strong>3 longueurs de coque</strong> de la bouée, le bateau <strong>intérieur</strong> (le plus proche de la bouée) a le droit à la place pour virer.</p>
+        <ul>
+            <li><strong>Zone</strong> = cercle de 3 longueurs autour de la bouée (~30m pour un Grand Surprise)</li>
+            <li><strong>Bateau intérieur</strong> = celui qui est entre toi et la bouée</li>
+            <li>Tu dois lui laisser la place de virer la bouée</li>
+        </ul>
+        <p><strong>Attention :</strong> L'engagement doit exister AVANT d'entrer dans la zone. Si tu n'es pas engagé à l'entrée de la zone, tu n'as pas droit à la place.</p>
+        <div class="tip">En cas de doute à la bouée, mieux vaut laisser passer. Une pénalité ou une collision coûte plus cher qu'une place perdue.</div>
+    `,
+    'regle-penalite': `
+        <div class="modal-icon">&#128260;</div>
+        <h3>Pénalité : Tour à 720°</h3>
+        <p>Si tu enfreins une règle et que tu touches un autre bateau, tu peux t'exonérer toi-même en effectuant une pénalité.</p>
+        <p><strong>Le tour à 720° :</strong></p>
+        <ul>
+            <li>Dès que possible après l'incident, tu t'écartes de la course</li>
+            <li>Tu effectues <strong>2 tours complets</strong> (2 virements + 2 empannages = 720°)</li>
+            <li>Chaque tour doit inclure un virement ET un empannage</li>
+            <li>Une fois les tours effectués, tu reprends la course normalement</li>
+        </ul>
+        <p><strong>Quand l'utiliser :</strong></p>
+        <ul>
+            <li>Tu as touché un autre bateau (même légèrement)</li>
+            <li>Tu as enfreint une règle de priorité</li>
+            <li>Tu préfères accepter la pénalité plutôt que risquer une protestation (DSQ)</li>
+        </ul>
+        <div class="tip">Mieux vaut faire un 720° et perdre quelques places que de finir disqualifié (DSQ) après une protestation. C'est une façon de reconnaître son erreur et de continuer la course.</div>
     `
 };
 
@@ -2109,32 +2178,68 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeModal();
 });
 
-// Clic sur les éléments avec data-popup
+// Clic sur les éléments avec data-popup + marquer comme lu
 document.querySelectorAll('[data-popup]').forEach(el => {
     el.addEventListener('click', function() {
         openModal(this.dataset.popup);
+        this.classList.add('read');
     });
 });
 
-// --- Quiz ---
+// --- Quiz avec score ---
+let quizCorrect = 0;
+let quizWrong = 0;
+const QUIZ_TOTAL = 12;
+
+function updateQuizScore() {
+    document.getElementById('quizCorrect').textContent = quizCorrect;
+    document.getElementById('quizWrong').textContent = quizWrong;
+
+    // Message final si toutes les questions sont répondues
+    if (quizCorrect + quizWrong === QUIZ_TOTAL) {
+        const finalMsg = document.getElementById('quizFinalMsg');
+        const percent = Math.round((quizCorrect / QUIZ_TOTAL) * 100);
+        let emoji, msg;
+        if (percent >= 90) {
+            emoji = '🏆'; msg = 'Excellent ! Tu es prêt(e) pour la régate !';
+        } else if (percent >= 70) {
+            emoji = '⛵'; msg = 'Bien joué ! Encore quelques révisions et tu seras au top.';
+        } else if (percent >= 50) {
+            emoji = '📚'; msg = 'Pas mal, mais relis les sections pour consolider.';
+        } else {
+            emoji = '💪'; msg = 'Continue à apprendre, tu vas progresser !';
+        }
+        finalMsg.innerHTML = `${emoji} ${quizCorrect}/${QUIZ_TOTAL} (${percent}%) — ${msg}`;
+        finalMsg.classList.add('show');
+    }
+}
+
 function checkAnswer(btn, correct) {
     const block = btn.closest('.quiz-block');
     const buttons = block.querySelectorAll('.quiz-btn');
     const feedback = block.querySelector('.quiz-feedback');
+
+    // Vérifier si déjà répondu
+    if (block.dataset.answered) return;
+    block.dataset.answered = 'true';
+
     buttons.forEach(b => {
         b.disabled = true;
         b.style.cursor = 'default';
     });
+
     if (correct) {
         btn.classList.add('correct');
         feedback.textContent = 'Bravo ! Tu es prêt pour la régate !';
         feedback.style.background = 'rgba(34,197,94,0.1)';
         feedback.style.color = '#16a34a';
+        quizCorrect++;
     } else {
         btn.classList.add('wrong');
         feedback.textContent = 'Pas tout à fait... mais tu sauras pour le jour J !';
         feedback.style.background = 'rgba(239,68,68,0.06)';
         feedback.style.color = '#dc2626';
+        quizWrong++;
         buttons.forEach(b => {
             if (!b.classList.contains('wrong')) {
                 const isCorrect = b.getAttribute('onclick').includes('true');
@@ -2143,7 +2248,37 @@ function checkAnswer(btn, correct) {
         });
     }
     feedback.style.display = 'block';
+    updateQuizScore();
 }
+
+function resetQuiz() {
+    quizCorrect = 0;
+    quizWrong = 0;
+    document.getElementById('quizCorrect').textContent = '0';
+    document.getElementById('quizWrong').textContent = '0';
+    document.getElementById('quizFinalMsg').classList.remove('show');
+
+    document.querySelectorAll('.quiz-block').forEach(block => {
+        delete block.dataset.answered;
+        block.querySelectorAll('.quiz-btn').forEach(btn => {
+            btn.disabled = false;
+            btn.style.cursor = 'pointer';
+            btn.classList.remove('correct', 'wrong');
+        });
+        const feedback = block.querySelector('.quiz-feedback');
+        if (feedback) feedback.style.display = 'none';
+    });
+}
+
+// --- Back to top ---
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 500) {
+        backToTopBtn.classList.add('visible');
+    } else {
+        backToTopBtn.classList.remove('visible');
+    }
+});
 </script>
 
 </body>
